@@ -1,0 +1,512 @@
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 12:53:29] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 12:53:29] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 12:53:31] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 12:53:50] "[32mPOST /signup HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 12:53:50] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 12:56:47] "[32mPOST /signup HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 12:56:47] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 12:58:38] "[32mGET /home HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:00:25] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:00:52] "POST /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:01:10] "POST /verify HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:01:10] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:01:30] "POST /verify_login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:01:30] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:01:41] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:01:41] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:01:45] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:01:45] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:01:45] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:01:47] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:01:47] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:02:01] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:02:01] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:02:11] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:02:11] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:53:15] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:53:17] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:53:17] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:53:17] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:53:19] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:53:51] "POST /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:54:15] "POST /verify HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:54:15] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:54:33] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:54:33] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:59:52] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:59:52] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:59:52] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:59:53] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:59:53] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 13:59:55] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 14:00:13] "[32mPOST /signup HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 14:00:13] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 14:01:39] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 14:02:04] "POST /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 14:02:27] "POST /verify HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 14:02:27] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 14:02:48] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 14:02:48] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 14:02:48] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 14:02:48] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 14:02:48] "GET /home?__debugger__=yes&cmd=resource&f=console.png&s=BxWd2eAOyjJgIvUOb693 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 14:02:49] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 14:08:12] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:43:01] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:43:01] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:43:05] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 137-052-090
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:44:11] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:44:11] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:44:20] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:44:20] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:44:31] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:44:31] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:49:04] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:52:26] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:52:26] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:52:26] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:52:29] "[32mGET /home HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:52:29] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:52:29] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:52:52] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:52:52] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:52:58] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Mar/2025 18:52:58] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 258-455-737
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 18:42:28] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 18:42:28] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 18:42:30] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 18:42:42] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 18:42:42] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 18:42:48] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 18:42:48] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 258-455-737
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 258-455-737
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:17:21] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:17:21] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:17:27] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:17:27] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 258-455-737
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 258-455-737
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:17:57] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:17:57] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:18:03] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:18:03] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:18:28] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:18:28] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:18:28] "GET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:18:28] "GET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:18:28] "GET /home?__debugger__=yes&cmd=resource&f=console.png&s=UYQIOsisLIi6yoLd7Ik4 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [18/Mar/2025 19:18:29] "GET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 258-455-737
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:38:27] "[32mGET / HTTP/1.1[0m" 301 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:38:27] code 400, message Bad request version ('ÚÚ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06S')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:38:27] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03×¥\x01\x16ÍX)Z²!äT\x8dÝ\x85q\x81±rã¼-\x15´\x10\x0b\x0b44\x0dav 9\x8b\x87{¿þù\x9b\x89\x9fû\x1f\x98lË¯q\x06 ;\x89Æ:Èá·®Á¶gÌ:\x00 ÚÚ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06S[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:38:27] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x003\x04ï\x04íúú\x00\x01\x00\x11ì\x04ÀßÛ=¥S\x0e4L\xad\x97S¶ö\x15ÁéT²«,¹KiUBò\x83\x92"KMæ')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:38:27] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03\x0eÐ;uy\x13@\x1a\x85I\x1e¶ý\x8bvÇ&\x80\x16ÆD\x1d¨Ô\x09¼4\x0cn^20 Ò®F~Ëtã`pf}´½âfuÎ\x17Åõ°\x1cè\x10D*Dts\x0b*\x86\x00 ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063ºº\x00\x00\x00\x12\x00\x00ÿ\x01\x00\x01\x00\x00#\x00\x00DÍ\x00\x05\x00\x03\x02h2\x00-\x00\x02\x01\x01\x00\x0b\x00\x02\x01\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x003\x04ï\x04íúú\x00\x01\x00\x11ì\x04ÀßÛ=¥S\x0e4L­\x97S¶ö\x15ÁéT²«,¹KiUBò\x83\x92"KMæ[0m" 400 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:47:55] code 400, message Bad request version ('jj\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93ÊÊ\x00\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:47:55] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03ó\x9b3Ë%2{qð¬\x14\x7f\x9d^\x99}\x02\x8f1f[l}®7\x8b|2ôdB® #àîVô©i-\x88±Á.\x8aû¹K=Áõ\x90\x92\x00J\x0f÷ûô~bÛ¬'\x00 jj\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93ÊÊ\x00\x00\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:47:55] code 400, message Bad request version ('öøc=\x1a,ô\x10Ð®à')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:47:55] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03ºøÓEF\x1d\x87HÖÁ3æ7d°\x15<Y¾ìÏ\x9a\x13\\ÜßT\x1a$âò\x91 Mé\x93\x89ü:ïÌÑ\x1eO\x10\x8dk/S¹\x96\x8a\x8aávþ~ÇÆ\x1d.\x1f¬ã\x95\x00 \x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Sªª\x00\x00þ\x0d\x00Ú\x00\x00\x01\x00\x01¹\x00 \x13\x0f^¦ÄyÑ\x16Ø\x1b3\x7fÂ \x97ÿu\x050\x14ñµ\x82\x81ädÔ]®±èe\x00°ð\x10\x14¶XEôç\x8aúcÑ\x17RIÞã\x8c\x024=.N<\x9dÌp\x85GEåFåq0±m§\x0cksX\x15/a»½¤r\x188\x83\x89\x18À\x8b¤§>ea\x09Ëf\x7f+Ü\x84ÇE2¹éx×¯k*±\x09uz öøc=\x1a,ô\x10Ð®à[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:48:05] code 400, message Bad request version ('úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:48:05] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03_\x88ò²5\x18_\x0b\x10M?ÿ\x81\x15×cMfàÜ¡Ê(«¹³ÏE\x8e½¯° \x1c\x8a'¼z\\\x8aäð¶\x93½Hý¤¥GÃ\x08ÛÄá£\x0c<\x84µK´·ú&\x00 úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:48:05] code 400, message Bad request version ('\x00\x02\x01\x00\x00-\x00\x02\x01\x01\x003\x04ï\x04í::\x00\x01\x00\x11ì\x04Àª')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:48:05] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03E~\x8c\x9e¦\x17©É§¢©¿ó{t\x07ùË\x88\x8c8Ò²\x8c\x1aY<ÆµMç° o\x96ÅTá~\x12Fð±½º\x8cs\x0e\x01\x9aþ\x0e\x9cPõ¡Ä¼\x0d¬ÇÇ\x05\x10Q\x00 \x9a\x9a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063JJ\x00\x00\x00\x0b\x00\x02\x01\x00\x00-\x00\x02\x01\x01\x003\x04ï\x04í::\x00\x01\x00\x11ì\x04Àª[0m" 400 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:49:30] code 400, message Bad request version ('Ñ¦D=¬\x99¦\x06\x1aP³N\x8f\x06\x08X6¯F')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:49:30] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03\x00×a¶³rJÅê\x7f"zµÀú\x1eùJ\x85\x11Ù^mÁGXâbè\x80\x0dK ÓÅ£ Ñ¦D=¬\x99¦\x06\x1aP³N\x8f\x06\x08X6¯F[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:49:30] code 400, message Bad request version ('\x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063ªª\x00\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:49:30] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03éÕ%\x88Ýî{·\x85\x95àÉÿ\x8b\x97gZ¹~_¢ãÄÆ\x0b\x86,\x0b\x90SÓ: Í¨pjÕí#\x94\x80Ó_\x80¢<\x9dîSBô¨?¹C\x17ô²2\x88)[X\x8e\x00 \x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063ªª\x00\x00\x00[0m" 400 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:51:11] code 400, message Bad request version ('\x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Sjj\x00\x00ÿ\x01\x00\x01\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:51:11] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03Ë\x9e\x12,Ú¡¢B|næ\x8aa<BÙ*2þ\x0c]\x0de\x96\x95­\x073¬É\x099 [\x1ci§À¢\x8dB*ô®h \x99nB\x88ã\x09\x01¶O~j¼-d@ñ¯\x86Z\x00 \x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Sjj\x00\x00ÿ\x01\x00\x01\x00\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:51:11] code 400, message Bad request version ('ÙÇÕc0@\x91\x10ûj\x00ð!Æ')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:51:11] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03\x0bOú3ñxú²'\x04ºÁVÌ\x8aê»\x96RÒHþÑL¦\x94Ñ#¶¡\x19Á +6\x9e\x91\x85\x1b\x01\x0ffC\x17\x90°êä¡\x13?\x9aA³Å\x9e\x9b\x17\x1aEÓÂ×\x0bì\x00 \x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93jj\x00\x00\x00\x17\x00\x00\x00-\x00\x02\x01\x01þ\x0d\x01\x1a\x00\x00\x01\x00\x01O\x00 å\x987ÐkSáB#â\x08Ûä\x94R\x92 \x9f\x8d:¹\x85ÙÇÕc0@\x91\x10ûj\x00ð!Æ[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:51:17] code 400, message Bad request version ("G¾\x17àéê^ÿ~3U?éW¶I\x02É\x88r?Ç÷Ð\x8c7Ði\x83Ýo\x01\x00(\x13\x02\x13\x01À,À+À0À/À$À#À(À'À")
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:51:17] "[31m[1m\x16\x03\x01\x01´\x01\x00\x01°\x03\x03[6¿´1ÀË\x09\x95@Ó\x12@º.DN¿ágÉs¯#¼Dé°´\x7f=ø G¾\x17àéê^ÿ~3U?éW¶I\x02É\x88r?Ç÷Ð\x8c7Ði\x83Ýo\x01\x00(\x13\x02\x13\x01À,À+À0À/À$À#À(À'À[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:51:17] code 400, message Bad request syntax ("\x16\x03\x03\x00©\x01\x00\x00¥\x03\x03gÚpmÒ¦½\x97#¶\xadä\x83±\x8f\x88QÊ\x9e8~z6S\x96AåþØÒ\x8dÁ\x00\x00$À,À+À0À/À$À#À(À'À")
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:51:17] "[31m[1m\x16\x03\x03\x00©\x01\x00\x00¥\x03\x03gÚpmÒ¦½\x97#¶­ä\x83±\x8f\x88QÊ\x9e8~z6S\x96AåþØÒ\x8dÁ\x00\x00$À,À+À0À/À$À#À(À'À[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:51:58] code 400, message Bad request version ('\x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063::\x00\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:51:58] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03\x18%UlqªÂG,'ØÞ\x1e\x00·\\\x09çôÅþP\x87\x95£«ô7rì\x1cµ  úë©î&ÝPrVT'Y\x82\x04Ì®e(ªßu¢&Ø6(\x80 h©\x9c\x00 \x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063::\x00\x00\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:51:58] code 400, message Bad request version ('ÁT~\x14')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:51:58] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03´ï\x8dÍÄN\x08\x0cx#\x00\\u\x8d\x81þ¾±>\x00\x1fHDÜÊAsç(\x86`È \x93Éç\x17H`\x07uÑïÛ\x05£½\x06>A\\\x8c7\x07QRýG_\x1a<¸N\x85\x80\x00 \x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93ªª\x00\x00\x00#\x00\x00DÍ\x00\x05\x00\x03\x02h2\x00\x0b\x00\x02\x01\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00-\x00\x02\x01\x01\x00\x12\x00\x00þ\x0d\x01\x1a\x00\x00\x01\x00\x01ù\x00 õGyµm\x13Î\x88F§ý?p\x08\x0f²L\x7fIY¸:=\x9d. \x80¦Oâ¢\x01\x00ðf²ÙÊÒÚr^n=\x84°½ç¬í\x04®¥\x88{a!gå\x90&\x9eµ\x1chGbýb8\x8cCd\x05"Zì\x85\x10\x01\x04¨7ucÃ!êÎ\x01\x19þ\x9b\x84!u£tsÞ\x0f½úíJº%\x9f\x17\x98ra\x0d¯\x0d \x8dË,Á\x93³õ\x8a\x1cFé'2\x03çl'\x85o\x147«îürEÃ\x8c?\x8e#zaT/\x85ÁT~\x14[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:52:04] code 400, message Bad request version ('\x00\x02\x01\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:52:04] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03\x0e!I\x1f£\x80¶\x93t\x10ÖFbò\x85nú¾y'\x1fû^\x03\x18æ\x162\x91¬\x17} {^þSÚP\x9a¿n;\x05m¾èã\x06CC\x17Íu\x84VÙ­\x04ÈKÚ\x88}\x0f\x00 \x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93ªª\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x1b\x00\x03\x02\x00\x02\x00-\x00\x02\x01\x01\x00+\x00\x07\x06ºº\x03\x04\x03\x03\x00\x0b\x00\x02\x01\x00\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:52:04] code 400, message Bad request version ('\x83Ñ\x17\x94')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:52:04] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03p\x01L\x965\x07\x08xzn\x00U.ª\x157Ø[¤iÍ.mò\x11â¼ÿW\x1d=I \x83Ñ\x17\x94[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:52:42] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:52:42] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03\x8e\x98®ªüÒ|\x04\\G3ßÍÎÝë\x02àpæ#\x87[\x93¢ÙeDÿÒýK Ú\x96"\x85\x06ä\x08ðò\x8b+0®Q\x9d\x92\x07\x08~)Vg\x03Ö,h\x00,°¹¸²\x00 ÊÊ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06sêê\x00\x00\x00\x12\x00\x00DÍ\x00\x05\x00\x03\x02h2\x00#\x00\x00\x00\x17\x00\x00\x00-\x00\x02\x01\x01\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:52:42] code 400, message Bad request version ('Lö|_BQ\x80{Æ\\èè\x7fÀ\\u&r+q\x13é\x06å\x0e\x91\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:52:42] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03A1_à\x82JÂH¦uô4ÄÈ}\x1fDYÒ$ëÑdù²\x8a4Ý2Ïø\x99 Ë\x90z%\x13T\x1aZ,\x04K\x1e_Ú\x02¥|>\x98¦¨\x07>\\£\x98\x93®BgqÓ\x00 \x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93zz\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00#\x00\x00\x00\x17\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00+\x00\x07\x06**\x03\x04\x03\x03þ\x0d\x01\x1a\x00\x00\x01\x00\x01\x0e\x00 G'\x06ßÏvrÕ+h}Ô«M\x00Ò\x83\x1az\x9d\x95ê\x11ù\x92ÿ\x1ep\x81Êf\x0b\x00ð\x061z7\x8f¥\x86?e?IYÎ° \x10<ë,3¸8 S!ã'.c\x04¯.\x90ðV×\x81 XQ\x9cæ\x8dd\x166\\ù}\x1c#\x17q\x1a.í\x9dÙ, \x86\x9d\x1c\x06]Q/î¡\x11¤JÃIi\x07ôd\x19\x0bf\x8b+\x0f\x89;£×\x09ñ\x11c=Â\x92¶\x10\x82Ó½\x18-]_Ü\x10Ã\x10cC\x82Ä×\x84ß¤7Xì1\x1c\x96\x16ÇÓ\x06Né6Lún4y?Úâ®þdØÑë]\x1cüÃÆË\x0c!\x14@)q|ÊÆH'\x86\x9b\x03Åêy³³\x19\x8dü\x86ddb\x8a\x97E~±Åÿíå);Ø8Hn\x7f\x99þãl×ËBt\x02Ò \x94çpý\x88Lz-Ñ8h\x1fLö|_BQ\x80{Æ\\èè\x7fÀ\\u&r+q\x13é\x06å\x0e\x91\x00[0m" 400 -
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:52:59] "[32mGET / HTTP/1.1[0m" 301 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:52:59] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:52:59] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03\x0eÓ\x98í&Fµþ·¢\x93ß\x08\x12QÜÐë7«\x04ÎB¡!RË¸ ÛÈî ¶ç¨ëÖª\x9a²¯oÈG\x914\x04\x98µ\x01¸v:#.Âç¯:[\x01\x0c\x11å\x00 ::\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06S\x8a\x8a\x00\x00ÿ\x01\x00\x01\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:52:59] code 400, message Bad request version ('\x00\x02\x01\x00\x00\x1b\x00\x03\x02\x00\x02\x00-\x00\x02\x01\x01\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:52:59] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03øM\x1c`i¦À\x81-yqï\x98BmÑÈÁqq ý}\x11F¾ÈçÃ]<³ ±\x0f×ßðæ\x0d\x9e\x19\x00ýâS#"\x02KêðN?8Õú«i\x13/ÒBç\x09\x00 ÚÚ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063jj\x00\x00DÍ\x00\x05\x00\x03\x02h2\x00\x0b\x00\x02\x01\x00\x00\x1b\x00\x03\x02\x00\x02\x00-\x00\x02\x01\x01\x00[0m" 400 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 345-879-150
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:47] code 400, message Bad request version ('\x8e³\x9fÖs(\x01]\x07Ä¯×\x99Ù\x17z{\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:47] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03~I©\x15AØ,\x86ÚË#sZaÊV\x81}\x8aJj\x15U&!w¥=æ91\x15 Íý¥4øÄ\x90\x8fö×Ã\x0c\x8e`\x0b\x8e³\x9fÖs(\x01]\x07Ä¯×\x99Ù\x17z{\x00 [0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:47] code 400, message Bad request version ('Z\x9bKÎ\x11o')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:47] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03$À4ÍÇàåm\x07\x04\x09²Õ&Û\x18ô\x0fõ_ÄúaöÎ\x00ÁAÅ¨½1 Z\x9bKÎ\x11o[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:51] code 400, message Bad request version ('\x00\x02\x01\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:51] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x036\x94>\x08\x99\x91î|\x86:\x0e³\x99\x92\x93v\x03m\x9d¡NÄdçÑ2d¢ä\x0c´Ö \x0fD3ÖkÆ\x11\x94Zob³3FÝ\x88{`l_\x11éUÀ`\x84 \x89ø.6\x01\x00 úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063ZZ\x00\x00þ\x0d\x00º\x00\x00\x01\x00\x01(\x00 ÍøçÅ_9bü\x14#\x8bs} \x94 øj\x0bá\x83¡/>i\x92rB\x01\x04\x10\x18\x00\x90÷ç$¾'Ú±m\x11ì®Ú\x08\x8aa/«U3÷GM/òg¹Ù\x8d1Íyì=øfì\x9dPi³·góëØ4\x96\x8bï\x829ÿÍA±âýÚ±ó>d«Ð¨\x8dÐ\x0dÐ`q\x95ef¶=£\x9f~=:-ë»\x0c<¨zsN£Á\x07â¡\x0eh\x1e ýOùÊÒSÇãÃ©TÜ°\x1dlFèlª\x91+x\x8eK\x07\x7fd\x19í 9Ûux ÛËªï0ý¯p¡\x8f\x00\x1b\x00\x03\x02\x00\x02\x00\x17\x00\x00\x00\x0b\x00\x02\x01\x00\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:51] code 400, message Bad request version ('\x88®È')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:51] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03­dw\x02ÄPìT¶°pØÜÝBa\x81d\x96zÅÃ\x96³35¾\x8ei¨bF \x9c£©|Ññ^r½\x06\x96[\x1cÙ\x02¶\x86\x82\x96\x19X\x1fK-÷»\x7fu\x077v>\x00 ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06s\x8a\x8a\x00\x00\x003\x04ï\x04íjj\x00\x01\x00\x11ì\x04Àÿ\x13\x98\x8b\x16\x1dÕ\x8cHCã(\x1dk/¥\x86Ë\x1c\x09\x02\x17C\x93b 3c86\x95hA\x15&¢Ò0·»Û8Q\x85Ì¡Àrí,ºpR@\x0b·\x0d\x86\x98¿'\x8a\x88\x10a"\x8a\x05Á1\x80QbE¬\x0f&«-\x85b\x867AöóN;0=ós\x86\x09\x00\x8eïÒ\x97\x8e÷¹·\x1a\x84\x0fÀ½\x87\x84@O¹+Öu*\x0f\x99\x1bLç\x0f\x1erS\x84¶\x96uÌ\x84ýéI0*}Ý\x12sY\x80K\x82ü£©\x9b#cÄ$´,KP;7À% ùT\\\x9a\x95b\x1fup5#®©÷\x9azJ\x1f\x97cÉpæÉÏ\x85xA\x8b\x85ñ¸\x87*\x14¿\x90\x14\x05\x87\x93\x8bã\x85W­¨\x01\x8e\x94UBC\x07.\x82\x96¨\x92\x04Ì\x05h\x81Å\x9anb¨\x12\x96\x9a\x98ay\x07\x03\x97\x8bÛyµ8\x11Ä\x15À¥\x95\x18¥K¹\x88\x9a\x84w\x0c\x1d\x9bÙ°}¦À\x19\x92+\x01\x17qGHÇ\x08°#\x91dXGæ\x92M\x94¢ùús\x1f°­\x1cñ\x07\x17£Â«\\-;¸=\x87,tÑê½æ\x19 \x14Ew.t¢4i\x1c\x1d{e²4\x8b¹`vÈG\x96q6Z\x9e0x9\x0c­°ªl\x00\x81mp»»Ã'ÅÊ À\x85\x11"\x0e\x10y\x19°\x86ê\x06f"ØÀÞ\x80\x95l¼Rû ~\x134Fm\x82VÇ)¢m¶g¢×ZÏ\x84\x03_Ê6ö\x93SHZkæó}ìamÍ¬ª²lf§©\x93jü\x8eHG\x18\x04ÔµN\x15\x11Ñè\x9a\x87\x92\x04\x87A¸\x1aé\x03\x9c¬\x1a¾ã³++0\x18'£\x0c¥Í\x09Æ|\x1a\x90Í\x81×\x96§Û´è7jÑ,\x08ÇG#!\x18I\x19I|ÈÀ\x88\x06\x83«7$; J¡ï!¬qaz\x91ÈqØ\x08\x957¦\x827\x84h\x947mQÌt\x8fdeÃà\x01\x0e\x12\x19Õ×\x82t`^Y÷ZÓ;µ\x0e5\x0e]ø|~A\x8d\x86\x82\x9e áwÌS®\x11\x03T p\x8cº{Ï\x97L+6J\x11Ý[\x86ÅôÊµ±\x19=,·\x00as\x18!Ìñ\x8c­\x9c)¹X\x89G7d \x1aD4ªë·W¨\x1aK#\x10åÛ¹åg¶\x1f#¾/à\x12®iIsüNÜQ³P\x08vÜ8xÅª\x96õ\x05zfÚ§FÑXB¦\x06Q\x94b\x05\x85oÄi<-\x1c\x91\x04\x04\x820¨\x99ô¼\x9cr<\x81\x9e\x15¾\x05òH%ä£\x93\x02\x1f»XÇ=\x17\x16\x85\x88®È[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:51] code 400, message Bad request version ('y\x93')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:51] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03c¢\x9d'¡0G\x8c\x89ß~\x12\x82ðîrx×\x86D"\x1a9gh\x0e\x16ÆÀÙjê e\x0b\x18ÁÜWÆ\x00\x11\x9d\x08ÉxÄ\x04É\x86ê¤®\x96är\x1d_è\x04\x91Jå²ó\x00 êê\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063**\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00#\x00\x00\x003\x04ï\x04íZZ\x00\x01\x00\x11ì\x04À\x8cFg\x0fZÌÓ&_½\x95¿ý\x03hÚø--x\x07\x10`\\\x1eG\x1cy\x93[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:51] code 400, message Bad request version ('\x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06SÊÊ\x00\x00ÿ\x01\x00\x01\x00\x00\x17\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:51] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03óXí\x91\x02ýC*B\x91} \x1b=É{þØÆ\x0fÒ\x02ÏôÆ\x9eï\x03y%Éö \x81\x12\x15\x99ÓCßß\x1aÀñ\x0b\x06#dª\x09nøàbó°½¼\x899\x90\x15Ägã\x00 \x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06SÊÊ\x00\x00ÿ\x01\x00\x01\x00\x00\x17\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] code 400, message Bad request version (')I\\:1D±Â\x02|:T0')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03i\x02)Á\x9cJÀè­'"¸¨\x91sÅØh6\x13ùëéý¹\x1d ¾5\x03O\x86 üÓÿüW×n'-\x13\x04y\x00DmÛùG¿k\x11è¨é\x91µ¨"ÒÍÚ[\x00 ZZ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93êê\x00\x00\x00-\x00\x02\x01\x01\x00\x17\x00\x00ÿ\x01\x00\x01\x00\x00+\x00\x07\x06::\x03\x04\x03\x03\x00\x12\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00DÍ\x00\x05\x00\x03\x02h2\x003\x04ï\x04íJJ\x00\x01\x00\x11ì\x04À\x803Sn¥¦ÆÛ\x09\x8få\x03úe-P·Ék'\x0dÐ\\*\x0d»\x06n\x14R\x06\x0bÄéi%ê\x84f\x84¸W\x8b¨H\x1eåe\x1a\x15ÎÚ¸\x1f)I\\:1D±Â\x02|:T0[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] code 400, message Bad request version ('¿.*^´')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03û³$ýE&\x0b\x7f¼VgñÞÞæø¸\x00\x88\x0c¿.*^´[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] code 400, message Bad request version ('\x02h2\x08http/1.1\x00-\x00\x02\x01\x01\x00\x12\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00DÍ\x00\x05\x00\x03\x02h2\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03\x02{-ooêÞf\x0c\x0cXl\x8bµ)Â{úö\x1bÎ©ÁcP(\x0fõê\x8e»8 ªÇÑÀ*¢+\x0dGßàÕ\x99\x98å<\x0b\x0bdZB©\x08á\x89O\x9c\x9a|>Aø\x00 ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063úú\x00\x00\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x00-\x00\x02\x01\x01\x00\x12\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00DÍ\x00\x05\x00\x03\x02h2\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] code 400, message Bad request version ('¯u£ÆãpþpÏi\x1b\x81\x19Ú\x19\x00¡Þ\x8fËú\x15ÝÍâ4\x7f,q`ùiÑÏ\x02\x94JHdæÎ2\x19´L')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03¦Ñû1ö´A¬Å$ú×z\x16¥G]\x9cyÐóôå\x8a\x9bJì=Û{;§  \x13I<%Ñ\x1c\x1aà\x86({\x1c³Á@»k\x9eû\x92á\x92ö\x94\x1bRÅul¦|\x00 úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93ºº\x00\x00\x00-\x00\x02\x01\x01\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1ÿ\x01\x00\x01\x00\x00\x17\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00þ\x0d\x01\x1a\x00\x00\x01\x00\x01\x08\x00 úÛ¨PÄÏ\x0d\x99SÆ×0·\x95\x11Ý-\x13Å¡¶ðï%c6\x08P§í¢Z\x00ð\x16öP\x04÷×\x05ky\x0e\x05µýteÒ\x85z\x1d§COgÿ\x99\x1d°S\x87\x86ä\x83\x1bïÙÝL\x82\x80M\x8f\x03\x8bW¥HJO¦ñáÖæc\x97\x06&\x09 *7¾\x93öØs*\x8f\x02;\x86é²Ê«E{I¯Ñã_U!(¨ã\x9e«qÃ\x07b%\x83¸èUÀ°õ&Ö\x10#\x1cDÿ±\x8a~P½ñ\x94Õ§\x19YîK\x0dV\x85\x8d'd \x10»\x03s`½EXQ\x14E§§\x80áûB\x7fW³µnKê\x00v\x7fg\x09¯u£ÆãpþpÏi\x1b\x81\x19Ú\x19\x00¡Þ\x8fËú\x15ÝÍâ4\x7f,q`ùiÑÏ\x02\x94JHdæÎ2\x19´L[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x12\x00\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03\x0f¼G@ûf\\\x8aîuµâ\x07¸\x84wlßÑ°¯\x08|R¯¶æ\x02X¿¸û »½Æø#Ë1\x0b\x07W\x10\x959Ú/\x11y\x8cØv\x96ÓZ\x98\x00\x14v \x00\x0eÆÕ\x00 ÚÚ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Súú\x00\x00\x00-\x00\x02\x01\x01\x00\x17\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x12\x00\x00\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] code 400, message Bad request version ('\x02h2\x08http/1.1\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03\x84\x7f3òÝíî\x81ÙÂÕa4\x9f¢B\\\x98\x08èiô\x1af\x85\x7f\x12<4äç\x90 )×ù\x86\x00'\x97?n².c\x95öc\x86=Sõ¢\x94\x924k\x02Æuñ\x9e¸?º\x00 úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06sjj\x00\x00\x00\x1b\x00\x03\x02\x00\x02þ\x0d\x00ú\x00\x00\x01\x00\x01\x17\x00 5\x18ZÄo\x07götÀýÌí÷¢\x0e·î\x00(,\x82£ùD\x86!e+\x9b¡\x11\x00Ð\x9c\x02!÷\x10\x1b¿8=T\x0f±hõ)Äzlb\x02&rÎ nMn­}»\x95îù^\x8f\x7fOz\x87L\x09ÉÃ\x1bÅ¥¢tâß¼Kj.åÐ\\ñÚÐ\x8b\x01\x9dñ!0\x17^: }÷ONÁ\x15yqª\x9aÂ\x05î£\x8eÁ\x8a³\x82Îßÿë \x1amÙ²¥\x80\x19Äu\x8d\x11ñ\x1a\x9ec¬?bä\x16\x9cª©Ó\x16`ã@\x19\x11ôR\x07\x1f\x88\x0b¦\x0cÄ\x1e#ô¹p¯©´à·Ë¸\x91¯ñly\x16\x1fë.5Öÿ\x12 ½yYæLb\x13Í\x99sË\x1dn0\x19«"îog^Ø5WQ¢\x01©«¨\x81É\x17³{\x85\x91`Aö\x91öÜî¿R|¤Y\x00\x17\x00\x00ÿ\x01\x00\x01\x00\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] code 400, message Bad request version ('\x02¬&Æ¡[ò')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03\x90\x95Ø\x03=¾]\x88Ñ_òÍf:^é¤4¶Áj\x05Æ@ðaÓAÒ¬{\x9f \x90\x11@¡\x9fH«êÐ Ü­\x08\x7f1<\x8c;*c\x93âô\x16º\x0fj/HÔwê\x00 ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06szz\x00\x00\x00\x12\x00\x00\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x00-\x00\x02\x01\x01\x00+\x00\x07\x06JJ\x03\x04\x03\x03\x00\x0b\x00\x02\x01\x00\x00#\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x003\x04ï\x04í\x8a\x8a\x00\x01\x00\x11ì\x04À\x9aÁË\x9f\x11Ì]ÊÎà¡\x0cW[1+\x12\x8c¶\x15\x15îv\x93Ý\x19¶+PIÈ\x80\x84»c½À¹A¯\x04µ\x98\x9a\x05;\x07\x85|E\x128\x81\x08qdÃ\x06È!¤)<ÞwVÔuh\x07\x0b%V\x15·\x0fåG\x08ð°ã\x07¦í\x09\x18\x14\x84³W\x91\x1dÿ°\x09IÐ\x94Úè\x8fFLÄ\x1f\x12¿å<K·Ä~\x0fr±º\x0cz\x9d\x1c\x85ª©ºÑãbJá^r\x11²\x97·7\x81è\x97ð÷_|Ä"g¨|Ö«\x94kW/­v\x97{)uo¦\x9eEGdÎÐt_U\x82}&Á\x0f\x85.mI\x17þ²\x9c®ç\x8fºb\x10áZ¾¯y"&\x8b²â¤¨°(P^\x07Ànô©jpqÿ¦)F\x9c\x1f%GE·p7\x92\x1c7ë4U4Ó=q\x85\x09§ò\x1b×ÉMð5&çÑR\x1d0\x86áØ8Ä\x14´Û\x93b\x02ãZ \x10GE\x02\x83úõ\x1d\x9dº{j9z¬'ÀQ²Ì\x9d\x18ÇR,|Ã\x97q#ê\x85=h²\x19r\x11.ë6è*¯èì)}²E/±ÈàGHKØWÅe\x00î\x99F\x85ÅI\x8eà\x88-\x92\x05\x15D\x00Çô#»L\x8ctØw[0,;\x1co\x8d0B;ðu=\x83J¯\x10>÷g\x82ü<\x89ø:+T°:¹TÄ.×a²|X WÂË\x92Týw\x91tê§QxÉæ\x1b9?\x0bs;[m»BsÈÂ|¢\x13\x18\x81²\x1c¤Ô\x9f^\x97dq\x89¬id\x8dï\x92i·%\x81\x15"/\x19úI\x90õ$\x1e\x02¬&Æ¡[ò[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] code 400, message Bad request version ('\x08\x12³\x93')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:52] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03«fä\x8e\\\x9c!ü\x92z)H\x88~ós|å\x14\x8e1Eó\x18°\x1e´òA\x1f&g g\x06Ë\x1c+Å4\x84\x0egwA\x92¿A*{ÍR|ê\x9cZÅ\x9baF+\x16\x88TM\x00 \x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06SÚÚ\x00\x00\x003\x04ï\x04íjj\x00\x01\x00\x11ì\x04À©êPg¶@,J\x17·{\x90§á\x88)@Xn\x17\x09Y,4ºw¡ÿ©[opp\x00\x1aW\x11(¿\x84\x82dé&r³Ú\x9a!\x0b;\x093\x1dá<´ª3Ãn¶\x8fâ´\x06_ÁK±\x1bW×gT°Ã\x99-\x17}\x89Ô\x89\x09öz\x11\x80oM,HCç\x13!\x96_§c!\x91¢7fÚ\x92w\x8bqâq:ä+À­R¥\x03¦\x06\x0bÔiäº\x02ÑCZ\x13'\x10Ýµ­9\x93(M:\x04Á¸s'\x18\x81\x1af±tº\x18dY¤þ)'=Ë\x91â\x19"M5\x9f¿%Q\x93\x07²ø Ê¬a¼\x82T¦q,Çü\x15\x90\x83t\x89\x87$\x11SRÁE,\x93;\x89\x80n·³\x09\x93\x08\x00å\x02|\x18KÕæDoµ®\x8e\x0c3Â+\x17\x1dÊià{\x85¤²%Ûà\x10Æ\x08\x88Ø4MÙL\x98fj,\x1f\x08\x12³\x93[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] code 400, message Bad request version ('g¯G±Kó"Aq)\x8eËg\x00à')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03`e\x06±íB¤Ë5Nêl8ÑçFD.T\x9c\x03V\x82=*r¡ Bhÿv ±Ù]\x96ì¿\x9eø¡\x0c°\x9f=%pi¯\x8dîma\x89¼Or\x14m\x01Qó\x8b!\x00 \x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063úú\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00\x05\x00\x05\x01\x00\x00\x00\x00\x003\x04ï\x04í\x8a\x8a\x00\x01\x00\x11ì\x04À\x8c7²\x99\x1c7ì\x07\x11<0kdâ\x8fb+\x1f5ãC\x17v\x06Ú\x87GÙr\x89Þé¢ÂÇG\x99\x9bqþú\x02\x83÷_V\x82\x03\x17ÔÏ­±\x9d°°\x9e]82Õ«ÇÃØÈ±\x91A¹\x86*\x16ÛW\x89\x09\x81\x83<\x11ÒcÀÐ¬Ãg³\x037\x81\x95b&!\x9d\x13\x1c\x83b\\±\x08¨\x87ê¨m²NÜ\x1c\x96z\x0bg¯G±Kó"Aq)\x8eËg\x00à[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] code 400, message Bad request version ('::\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06s\x1a\x1a\x00\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03\x08\x88êú¹r\x1a\x10(ÙÙ\\\x13\x9e\x1fk\x15'(iE}Gÿ¼aa*\x97\x84²¸ \x1b\x8e¶¦f·Å\x9fhv\x01\x1eÝ\x01;\x09\x01×\x02{\\¸o\x94U,êÛ´v=;\x00 ::\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06s\x1a\x1a\x00\x00\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] code 400, message Bad request version ('\x02h2\x08http/1.1DÍ\x00\x05\x00\x03\x02h2\x003\x04ï\x04í')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03<\x01ü¿g\x82\x95\x9aESeF\x8fk1\x04Ò^\x84Ý\x15\x88!:è4]¿á\x06}Å xhbÑG'\x01­j\x1eÉÅ\x8cïnÔ\x18ß\\®á\x91\x93\x0cm\x8c\x1bã=æ+\x84\x00 **\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x063ZZ\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x12\x00\x00þ\x0d\x00º\x00\x00\x01\x00\x01}\x00 ö2È¼\x8d'Ã\x8b7H_[¥æø\x7fjL\x1d³¯}\x0b\x10y[mSÅM«+\x00\x90]B6ñêR»eGãÓÕ×ÅÈx7d1\x87Q\x02í\x9a÷&ÈS\x8c"+\x0bÆ#\x06\x98\x83¡\x94CÌl ¨»Ñ,]"\x0eÞðÍóÜ¿\x10C\x12;MLrÆ\x96Åm!\x16\x9c\\\x0dt*5Ëóý\x8b±£\x89{\x02Û/éÓ\x11ì£¥gjx\x16ºÎ'\x8eÏ8q\x1aî\x83â\x98c?^¦\x06­\x85¦\x10£Gà\x02È·3Á®½ý\x15\x1fN¼±7\x0cÁÉy\x98¦é¥ês\x00\x0b\x00\x02\x01\x00\x00-\x00\x02\x01\x01\x00#\x00\x00ÿ\x01\x00\x01\x00\x00\x17\x00\x00\x00+\x00\x07\x06êê\x03\x04\x03\x03\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1DÍ\x00\x05\x00\x03\x02h2\x003\x04ï\x04í[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] code 400, message Bad request version ('\xadì\x8d\x1bÞØ³Ò\x8cîl¿)')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03Ò\x15K$.×n\x8dèa\x1aÃ\x8f\x92\x1cLR\x98z\x84&\x9f\x10\x04A¶y.y¾\x01[ ­ì\x8d\x1bÞØ³Ò\x8cîl¿)[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] code 400, message Bad request version ('EÌ·\x96ÛA¨\x97ò\xad;sæ\x96')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03\x98«\x95=Ý\x05r\x9e\x08P\x15{ì \x85\x10õ@\x1aÉ'\x7fø-\x8dîÄ\x0bdñªâ dô\x1d\x83³rY'°-\x993\x04àèû&fÞÏmzü¯\x9aæõÐ¤\x1e\x1cj\x00 \x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Sºº\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00-\x00\x02\x01\x01\x00\x17\x00\x00ÿ\x01\x00\x01\x00þ\x0d\x00Ú\x00\x00\x01\x00\x01²\x00 \x0eQwLánE\x1eEÌ·\x96ÛA¨\x97ò­;sæ\x96[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] code 400, message Bad request version ('\x00\x02\x01\x00\x00\x17\x00\x00\x00#\x00\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03l¦e+¡ø:¡\x01\x0f`¯±Â\x9c\x81!«DBz\x92o]ð¼R\x04\x1dÃXÝ úza!\x9b\x94|OÅ/C^\x09¦'<7¦aü-ÅK\x06\x8aôõÓ\x0c;hÖ\x00 úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Sªª\x00\x00\x00\x0b\x00\x02\x01\x00\x00\x17\x00\x00\x00#\x00\x00\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03\x8e\x14ú]C¬ñáe¸\x9b\x11½\x08ÿ"å\x0e%Ö\x03OñªÀ\x8d\x14.#?p')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03\x8e\x14ú]C¬ñáe¸\x9b\x11½\x08ÿ"å\x0e%Ö\x03OñªÀ\x8d\x14.#?p\x0c \x09.[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] code 400, message Bad HTTP/0.9 request type ('\x16\x03\x01\x06')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] "[31m[1m\x16\x03\x01\x06 \x01\x00\x06\x9c\x03\x03\x11)\x8f\x8b©ÅÇ/>Ì\x9dï\x18\x94j"[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] code 400, message Bad request version ('·LJu\x13t5\x00ªa¬Z')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03\x91\x0cÕÒ\x1e\x8dî"\x8e4Wê\\ø\x92 77­Õ\x0eå\x8c&º4A\x93Ï \x19¸ jõ^`\x80E`c¢|Î\x10%\x8eÑñ^þó¤\x94H\x00\x98öXh\x1em±Ã\x1c\x00 ªª\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06s\x1a\x1a\x00\x00\x00\x0b\x00\x02\x01\x00\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x00\x17\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x1b\x00\x03\x02\x00\x02ÿ\x01\x00\x01\x00\x00-\x00\x02\x01\x01\x003\x04ï\x04ízz\x00\x01\x00\x11ì\x04À¸÷!£Åvy9\x96\x9b¬S¼â<\x0ff\x05\x89H\x0f¯K,9ÊNOõ½¸Ãa|\\­YgÁo\x92$\x11'¨ð\x15\x84ÂC1v,\x11;ú\x0eëÙ\x84&;º\x8eû\x96\x08´\x17*Ó\x1bêª[e74ÌH\x88çÈÅ©\x04"Õ³\x0d|ñH»\x1b\x0bé\x85\x82@ð¬ÜðHçúw<{1±\x13»H¹( á\x9d´æ êIc¢Y«-ú¹ÛS\\u\x8b\x05lCiì¨Ã\x9d\x15}Ë%~'\x14ÇL\x9c\x06,;{f+À\x84ÈfÊ&£'Q\x1b\x19ë@\x89Ù\x0f\x17h¼¼ª\x83&\x85\x0eO|Ícùta; é\x09©B¢>\x0d³¸¹\x97²AÃ\x06\\8\x1cHqÌÝ(\x9bV`±¡Q¶\x1bÁ>V©;\x8a+¡÷{¡"Ì$ñ»L5\x17&,»s\x1b\x90\x82§%\x89q5=Ì¢\x19\x10bU\x18 Z3\x97g\x8bó¸§\x1a²al¿à\x84\x15\x8aë³Ó\x09ÌXê\x9cË÷r+\x08¬q°\x04\x9e²¸,j\x0f\x98%§\x15Iu«Å0Þ{{¤ì\x02\x06Å\x03á«­Ë\x84\x9aÉX¨0P\x15ï\x1c}\x8eX\x05\x80¶\x99\x01#rJ\x90Í2©6\x97\x99NçÉÄ¨è\x15òd\x04rÅÄ×U°Ìp¥fáqÌµ®NlFHÖ\x9e\x8b\x82K>ºZ\x80Ç*é±Áï;¿vñ\x1b·õFKèrtµ²aCC\x99\x12W\x94\x16\x16Ê\x18;þ\x84\x8cÐ+b\x92U=:\\\x18\x1cÜ\x03Áx\x96:H`g83~\x08|G\x8a8áªq\x8b$\x1d\x95Ö E ·D\x09\x0f\x83W\\µHFA\x05Ëà\x09&\x18\x92Íw\x84°º\x07\x04\x94\x0c%'²É\x8a"\x93¥\x82°\x8c\x01ËæG\x13¼F\x81q¨\x08õê\x08ö&Ä\x1crt\x90\x86\x17_\x1bNëÁ\x15\x1aÇ\x8d²{\x1cKU\x0bJ¶#\x07pM©\x9bªÙ\x10¥¹Ú\x90\x10\x83\x10\x7fÖhß¬O\x09\x14UqúË\x9eøºÁØ¢#x¶\x1aE¤¯[>\x80&Iê\x08\x8b§ó\x82Oõ\x13\x0b·LJu\x13t5\x00ªa¬Z[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] code 400, message Bad request version ('Ì\x9a¼5\x81ÙÃæ\x8f}R?\x87kÇ\x87$ä\\ë\xad_ÎÛN#\x00°TÐ¢')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] "[31m[1m\x16\x03\x01\x06À\x01\x00\x06¼\x03\x03CÌQB¿\x8eÚÄÊäø\x1a­F[\x83Ìà~ö÷ûz\x01< úÆ:\x04Q\x94 ¯=ý\x1bÔMN\x95,Þ»ðóÉ8\x89h<\x00ìM\x16\x07Ñf»\x1cï\x1c\x81Áp\x00 ÚÚ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06S::\x00\x00DÍ\x00\x05\x00\x03\x02h2\x00#\x00\x00þ\x0d\x00Ú\x00\x00\x01\x00\x01\x03\x00 \x12\x81g¦\x8a\x0bÌ\x9a¼5\x81ÙÃæ\x8f}R?\x87kÇ\x87$ä\\ë­_ÎÛN#\x00°TÐ¢[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] code 400, message Bad request version ('\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x1b\x00\x03\x02\x00\x02\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] "[31m[1m\x16\x03\x01\x07\x00\x01\x00\x06ü\x03\x03\x8b\x88h´÷>ñ\x88\x02Üð\x81~"m\x80â¢\x8aMõÚúç\x88Ö­nU<[n s_ÌåÍÒæÖ\x01~(ì\x0fÍ\x00\x04Ìx\x97ÕÄ\x03=s\x87K´:Ò#ü5\x00 êê\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x93\x9a\x9a\x00\x00\x00+\x00\x07\x06JJ\x03\x04\x03\x03\x00\x12\x00\x00\x00#\x00\x00\x00\x17\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x1b\x00\x03\x02\x00\x02\x00[0m" 400 -
+ERROR:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] code 400, message Bad request version ('êê\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06s::\x00\x00\x00')
+INFO:werkzeug:127.0.0.1 - - [19/Mar/2025 12:53:53] "[31m[1m\x16\x03\x01\x06à\x01\x00\x06Ü\x03\x03·Àù\x03¨É\x83æa\x0e \x93F\x1fI\x07×\x80h>FçU\x9f\x9fv}i±[I\x88 \x9fÌ:\x924nÐ°EÎ\x844S\x94\x15Ì©\x7fû¡ußX:uÉ\x91Nh×2^\x00 êê\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06s::\x00\x00\x00[0m" 400 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 199-064-829
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:15:05] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:15:05] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:15:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:15:13] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:15:13] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:15:14] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:15:26] "POST /verify_login HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:15:26] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:15:35] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:15:35] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+2025-03-26 10:24:17,597 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-03-26 10:24:17,597 - INFO - [33mPress CTRL+C to quit[0m
+2025-03-26 10:24:23,331 - INFO - 127.0.0.1 - - [26/Mar/2025 10:24:23] "GET / HTTP/1.1" 200 -
+2025-03-26 10:24:23,353 - INFO - 127.0.0.1 - - [26/Mar/2025 10:24:23] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+2025-03-26 10:24:25,626 - ERROR - Exception on /send_login_otp [POST]
+Traceback (most recent call last):
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\python project\.venv\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "D:\python project\.venv\Lib\site-packages\pymysql\connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\pymysql\connections.py", line 825, in _read_query_result
+    result.read()
+  File "D:\python project\.venv\Lib\site-packages\pymysql\connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\pymysql\connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "D:\python project\.venv\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\python project\.venv\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.OperationalError: (1054, "Unknown column 'signup.hashed_password' in 'field list'")
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\python project\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\flask_limiter\extension.py", line 1297, in __inner
+    return cast(R, flask.current_app.ensure_sync(obj)(*a, **k))
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\ppp\app.py", line 144, in send_login_otp
+    users = db_session.query(Signup).all()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\orm\query.py", line 2858, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2365, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\orm\session.py", line 2251, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\orm\context.py", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1416, in execute
+    return meth(
+           ^^^^^
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\sql\elements.py", line 523, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1638, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1843, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1983, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 2352, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\engine\base.py", line 1964, in _exec_single_context
+    self.dialect.do_execute(
+  File "D:\python project\.venv\Lib\site-packages\sqlalchemy\engine\default.py", line 942, in do_execute
+    cursor.execute(statement, parameters)
+  File "D:\python project\.venv\Lib\site-packages\pymysql\cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\pymysql\cursors.py", line 322, in _query
+    conn.query(q)
+  File "D:\python project\.venv\Lib\site-packages\pymysql\connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\pymysql\connections.py", line 825, in _read_query_result
+    result.read()
+  File "D:\python project\.venv\Lib\site-packages\pymysql\connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\python project\.venv\Lib\site-packages\pymysql\connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "D:\python project\.venv\Lib\site-packages\pymysql\protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "D:\python project\.venv\Lib\site-packages\pymysql\err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1054, "Unknown column 'signup.hashed_password' in 'field list'")
+[SQL: SELECT signup.id AS signup_id, signup.encrypted_fname AS signup_encrypted_fname, signup.encrypted_lname AS signup_encrypted_lname, signup.encrypted_dob AS signup_encrypted_dob, signup.encrypted_phno AS signup_encrypted_phno, signup.encrypted_email AS signup_encrypted_email, signup.hashed_password AS signup_hashed_password 
+FROM signup]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2025-03-26 10:24:25,770 - INFO - 127.0.0.1 - - [26/Mar/2025 10:24:25] "[35m[1mPOST /send_login_otp HTTP/1.1[0m" 500 -
+2025-03-26 10:24:40,594 - INFO - 127.0.0.1 - - [26/Mar/2025 10:24:40] "GET / HTTP/1.1" 200 -
+2025-03-26 10:24:40,653 - INFO - 127.0.0.1 - - [26/Mar/2025 10:24:40] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+2025-03-26 10:24:43,422 - INFO - 127.0.0.1 - - [26/Mar/2025 10:24:43] "GET / HTTP/1.1" 200 -
+2025-03-26 10:24:43,453 - INFO - 127.0.0.1 - - [26/Mar/2025 10:24:43] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 199-064-829
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 199-064-829
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:29:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:29:07] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:29:09] "[35m[1mPOST /send_login_otp HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:29:09] "GET /send_login_otp?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:29:09] "GET /send_login_otp?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:29:09] "GET /send_login_otp?__debugger__=yes&cmd=resource&f=console.png&s=65dElYx0GvrCYYe3ezRD HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:29:10] "GET /send_login_otp?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 199-064-829
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 199-064-829
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:32:45] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:32:45] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:33:13] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:33:13] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:33:21] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 10:33:21] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'D:\\python project\\ppp\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 199-064-829
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:30:47] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:30:47] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:30:56] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:30:56] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:31:06] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:31:06] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:31:14] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:31:14] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:31:14] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:31:46] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:31:46] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:31:54] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:31:54] "GET /home HTTP/1.1" 200 -
+ERROR:root:Error while storing data: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:32:44] "POST /home HTTP/1.1" 200 -
+ERROR:root:Error while storing data: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:41:07] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:41:09] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:45:26] "[32mGET /logout HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:45:26] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:45:26] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:46:58] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:47:00] "[32mGET /home HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:47:00] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:47:00] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:47:01] "GET / HTTP/1.1" 200 -

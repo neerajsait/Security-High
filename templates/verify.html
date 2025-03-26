@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #87CEEB, #1E90FF);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .flash-messages {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .flash-messages .success { color: #006400; }
+        .flash-messages .danger { color: #ff0000; }
+        .flash-messages .warning { color: #ffa500; }
+        .flash-messages .info { color: #0000ff; }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .moving-cloud {
+            position: absolute;
+            width: 150px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            box-shadow: 30px 15px 30px rgba(255, 255, 255, 0.6);
+            animation: moveClouds 20s linear infinite;
+            opacity: 0.9;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        @keyframes moveClouds {
+            from { transform: translateX(-100vw); }
+            to { transform: translateX(100vw); }
+        }
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message | safe }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <h2>Verify OTP</h2>
+    <div class="form-container">
+        <form action="{{ url_for('verify') }}" method="post">
+            <input type="hidden" name="email" value="{{ email }}">
+            <input type="text" name="otp" required placeholder="Enter OTP" maxlength="6">
+            <button type="submit">Verify</button>
+        </form>
+    </div>
+
+    <!-- Optional moving background clouds -->
+    <div class="moving-cloud" style="top: 15%; left: -150px;"></div>
+    <div class="moving-cloud" style="top: 25%; left: -300px; animation-delay: 5s;"></div>
+    <div class="moving-cloud" style="top: 35%; left: -450px; animation-delay: 10s;"></div>
+</body>
+</html>

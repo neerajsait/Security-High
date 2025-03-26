@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP</title>
+    <style>
+            body {
+        background-color: black;
+        color: white;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .flash-messages {
+        position: absolute;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.1);
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .flash-messages .success { color: #00ff00; }
+    .flash-messages .danger { color: #ff0000; }
+    .flash-messages .warning { color: #ffff00; }
+    .flash-messages .info { color: #00ffff; }
+
+    .login-container {
+        text-align: center;
+    }
+
+    img {
+        width: 100px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 30px;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    form {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        width: 300px;
+    }
+
+    input[type="email"], input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        text-align: center;
+        box-sizing: border-box;
+        background: rgba(255, 255, 255, 0.9);
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        margin-top: 10px;
+        background-color: #fac001;
+        color: black;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    button:hover {
+        background-color: #e6ad00;
+    }
+
+    p {
+        margin-top: 15px;
+    }
+
+    a {
+        color: #fac001;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+    </style>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <p class="{{ category }}">{{ message | safe }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="login-container">
+        <img src="{{ url_for('static', filename='rocket.png') }}" alt="Rocket">
+        <h1>Verify OTP</h1>
+        <form id="verifyForm" action="{{ url_for('verify_login') }}" method="post">
+            <input type="hidden" name="email" value="{{ email }}">
+            <input type="text" name="otp" placeholder="Enter OTP" required maxlength="6">
+            <button type="submit">Verify OTP</button>
+        </form>
+        
+    </div>
+</body>
+</html>

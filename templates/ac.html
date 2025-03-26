@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Choose Your Questions</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .question { margin: 10px 0; }
+        .answer-box { display: none; margin-top: 20px; }
+        .answer-box.active { display: block; }
+        #selection-counter { color: #555; }
+        #submit-btn { display: none; }
+        #submit-btn.active { display: block; }
+    </style>
+</head>
+<body>
+    <h1>Choose Your Questions</h1>
+    <p>Please select any 4 questions from the list below and provide a one-word answer.</p>
+    <p id="selection-counter">Selected: 0/4</p>
+
+    <div id="questions">
+        <div class="question"><input type="checkbox" name="q1"> 1. What is your favorite color?</div>
+        <div class="question"><input type="checkbox" name="q2"> 2. What is your pet's name?</div>
+        <div class="question"><input type="checkbox" name="q3"> 3. What is your favorite food?</div>
+        <div class="question"><input type="checkbox" name="q4"> 4. What city were you born in?</div>
+        <div class="question"><input type="checkbox" name="q5"> 5. What is your favorite hobby?</div>
+        <div class="question"><input type="checkbox" name="q6"> 6. What is your favorite season?</div>
+        <div class="question"><input type="checkbox" name="q7"> 7. What is your favorite animal?</div>
+        <div class="question"><input type="checkbox" name="q8"> 8. What is your favorite movie?</div>
+        <div class="question"><input type="checkbox" name="q9"> 9. What is your favorite sport?</div>
+        <div class="question"><input type="checkbox" name="q10">10. What is your favorite book?</div>
+    </div>
+
+    <div id="answers">
+        <div class="answer-box">
+            <label>Answer 1:</label>
+            <input type="text" id="answer1" maxlength="100">
+        </div>
+        <div class="answer-box">
+            <label>Answer 2:</label>
+            <input type="text" id="answer2" maxlength="100">
+        </div>
+        <div class="answer-box">
+            <label>Answer 3:</label>
+            <input type="text" id="answer3" maxlength="100">
+        </div>
+        <div class="answer-box">
+            <label>Answer 4:</label>
+            <input type="text" id="answer4" maxlength="100">
+        </div>
+    </div>
+
+    <button id="submit-btn">Submit</button>
+
+    <script>
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const counter = document.getElementById('selection-counter');
+        const answerBoxes = document.querySelectorAll('.answer-box');
+        const submitBtn = document.getElementById('submit-btn');
+        let selectedCount = 0;
+
+        checkboxes.forEach((checkbox, index) => {
+            checkbox.addEventListener('change', () => {
+                if (checkbox.checked) {
+                    if (selectedCount < 4) {
+                        selectedCount++;
+                        answerBoxes[selectedCount - 1].classList.add('active');
+                    } else {
+                        checkbox.checked = false; // Prevent selecting more than 4
+                    }
+                } else {
+                    selectedCount--;
+                    answerBoxes[selectedCount].classList.remove('active');
+                }
+                counter.textContent = `Selected: ${selectedCount}/4`;
+                submitBtn.classList.toggle('active', selectedCount === 4);
+            });
+        });
+
+        // Submit button validation
+        submitBtn.addEventListener('click', () => {
+            const answers = [
+                document.getElementById('answer1').value.trim(),
+                document.getElementById('answer2').value.trim(),
+                document.getElementById('answer3').value.trim(),
+                document.getElementById('answer4').value.trim()
+            ];
+
+            let valid = true;
+
+            answers.forEach((answer, index) => {
+                if (answer.split(/\s+/).length > 1) {
+                    valid = false;
+                    alert(`Answer ${index + 1} must be a single word.`);
+                }
+            });
+
+            if (valid) {
+                alert('All answers are valid! Submitting...');
+                // Submit logic here (e.g., form submission or AJAX request)
+            }
+        });
+    </script>
+</body>
+</html>
