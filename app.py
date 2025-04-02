@@ -13,7 +13,8 @@ import re
 import logging
 import secrets
 from cryptography.fernet import Fernet
-from datetime import datetime  # Added for timestamp tracking
+from datetime import datetime
+import requests  # Added for IP geolocation
 
 # Load environment variables
 load_dotenv()
@@ -51,7 +52,7 @@ limiter = Limiter(
 
 # In-memory OTP and activity storage
 otp_storage = {}
-activity_log = {}  # Added to track user activities
+activity_log = {}
 
 # SQLAlchemy Models
 class Signup(Base):
@@ -81,6 +82,18 @@ try:
 except Exception as e:
     print(f"Error creating tables: {e}")
     raise
+
+# Helper function to get location from IP
+def get_location_from_ip(ip_address):
+    try:
+        response = requests.get(f"http://ip-api.com/json/{ip_address}")
+        data = response.json()
+        if data['status'] == 'success':
+            return f"{data['city']}, {data['regionName']}, {data['country']}"
+        return "Unknown Location"
+    except Exception as e:
+        print(f"Error fetching location: {e}")
+        return "Unknown Location"
 
 # Helper function to log activities
 def log_activity(email, action, details=""):
@@ -141,7 +154,8 @@ def index():
 def send_login_otp():
     email = request.form['email']
     password = request.form['password']
-    print(f"POST request received with email: {email}")
+    ip_address = request.remote_addr
+    print(f"POST request received with email: {email}, IP: {ip_address}")
     
     db_session = Session()
     users = db_session.query(Signup).all()
@@ -164,6 +178,7 @@ def send_login_otp():
     if not user:
         flash("Invalid email or password! Please try again or <a href='/signup' class='alert-link'>Sign Up</a>.", "danger")
         print(f"Login failed for {email}: No matching user or incorrect credentials.")
+        log_activity(email, "Login attempt", f"Failed - Invalid credentials, IP: {ip_address}")
         return redirect(url_for('index'))
 
     otp = random.randint(100000, 999999)
@@ -176,17 +191,18 @@ def send_login_otp():
     flash("OTP sent successfully! Check your email.", "success")
     print(f"Login OTP sent for {email}: {otp}")
     session['pending_login_email'] = email
-    log_activity(email, "Login attempt", "OTP sent")
+    log_activity(email, "Login attempt", f"OTP sent, IP: {ip_address}")
     return render_template('verify_login.html', email=email)
 
 @app.route('/verify_login', methods=['GET', 'POST'])
 @limiter.limit("10 per minute")
 def verify_login():
+    ip_address = request.remote_addr
     if request.method == 'POST':
         try:
             email = request.form['email']
             user_otp = request.form['otp']
-            print(f"POST to /verify_login - Verifying OTP for {email}: {user_otp}, stored OTP: {otp_storage.get(email)}")
+            print(f"POST to /verify_login - Verifying OTP for {email}: {user_otp}, stored OTP: {otp_storage.get(email)}, IP: {ip_address}")
 
             if email in otp_storage and otp_storage[email] == int(user_otp):
                 session['user'] = email
@@ -195,24 +211,26 @@ def verify_login():
                 session.pop('login_password', None)
                 flash("Login successful!", "success")
                 print("Login OTP verified, redirecting to home.")
-                log_activity(email, "Login", "Successful")
+                log_activity(email, "Login", f"Successful, IP: {ip_address}")
                 return redirect(url_for('home'))
             else:
                 flash("Invalid OTP! Try again.", "danger")
                 print("Login OTP verification failed.")
-                log_activity(email, "Login attempt", "Invalid OTP")
+                log_activity(email, "Login attempt", f"Invalid OTP, IP: {ip_address}")
                 return render_template('verify_login.html', email=email)
         except KeyError as e:
             print(f"POST to /verify_login - KeyError: {e}")
             flash("Form submission error. Please try again.", "danger")
+            log_activity(email, "Login attempt", f"Form error: {e}, IP: {ip_address}")
             return render_template('verify_login.html', email=request.form.get('email', ''))
 
     email = request.args.get('email')
     if email and email in otp_storage:
-        print(f"GET request to /verify_login with email: {email}")
+        print(f"GET request to /verify_login with email: {email}, IP: {ip_address}")
         return render_template('verify_login.html', email=email)
     print("GET request to /verify_login without valid email, redirecting to index.")
     flash("Please enter your email first.", "warning")
+    log_activity(email, "Login attempt", f"No email provided, IP: {ip_address}")
     return redirect(url_for('index'))
 
 @app.route('/home', methods=['GET', 'POST'])
@@ -224,13 +242,14 @@ def home():
         return redirect(url_for('index'))
 
     email = session['user']
+    ip_address = request.remote_addr
     stack_data = []
     db_session = Session()
 
     if request.method == 'GET':
         session['decrypted_records'] = {}
         print("Page refreshed, decrypted records reset.")
-        log_activity(email, "Home page access", "Page refreshed")
+        log_activity(email, "Home page access", f"Page refreshed, IP: {ip_address}")
 
     decrypted_records = session.get('decrypted_records', {})
 
@@ -301,16 +320,14 @@ def home():
                 flash("Data encrypted and stored successfully!", "success")
                 logging.info(f"Data stored for {email}: {first_name} {last_name}")
                 print(f"Encryption successful for {email}")
-                log_activity(email, "Data encryption", f"Record ID {new_record.id} created")
+                log_activity(email, "Data encryption", f"Record ID {new_record.id} created - Name: {first_name} {last_name}, DOB: {dob}, Phone: {phone}, Notes: {notes}, IP: {ip_address}")
 
             except Exception as e:
                 db_session.rollback()
                 flash(f"Error: {str(e)}", "danger")
                 logging.error(f"Error while storing data: {e}")
                 print(f"Encryption error for {email}: {e}")
-                log_activity(email, "Data encryption failed", str(e))
-
-        # Add logging to other actions as needed
+                log_activity(email, "Data encryption failed", f"Error: {str(e)}, IP: {ip_address}")
 
     records = db_session.query(UserData).filter_by(user_email=email).order_by(UserData.id.desc()).all()
     for record in records:
@@ -341,23 +358,54 @@ def home():
     total_entries = len(records)
     decrypted_count = sum(1 for entry in stack_data if entry['decrypted'])
     print(f"User {email} accessed home page with {decrypted_count} decrypted items out of {total_entries} total.")
+    log_activity(email, "Home page data", f"Viewed {total_entries} records, {decrypted_count} decrypted, IP: {ip_address}")
     db_session.close()
     return render_template('home.html', email=email, stack_data=stack_data, total_entries=total_entries)
 
 @app.route('/logout')
 def logout():
     email = session.get('user')
+    ip_address = request.remote_addr
+    location = get_location_from_ip(ip_address)
+
     if email and email in activity_log:
-        # Prepare and send activity report
-        report = "Your Session Activity Report:\n\n"
+        # Prepare detailed activity report
+        report = f"Your Session Activity Report\n\n"
+        report += f"IP Address: {ip_address}\n"
+        report += f"Location: {location}\n\n"
+        report += "Activity Log:\n"
         report += "\n".join(activity_log[email])
+        
+        # Fetch and include all records created in this session
+        db_session = Session()
+        records = db_session.query(UserData).filter_by(user_email=email).order_by(UserData.id.desc()).all()
+        decrypted_records = session.get('decrypted_records', {})
+        report += "\n\nRecords Created/Accessed in This Session:\n"
+        for record in records:
+            id_str = str(record.id)
+            if id_str in decrypted_records:
+                report += f"Record ID: {record.id} (Decrypted)\n"
+                report += f"  Name: {decrypted_records[id_str]['name']}\n"
+                report += f"  DOB: {decrypted_records[id_str]['dob']}\n"
+                report += f"  Phone: {decrypted_records[id_str]['phone']}\n"
+                report += f"  Notes: {decrypted_records[id_str]['notes']}\n"
+                report += f"  Image: {'Present' if decrypted_records[id_str]['image'] else 'None'}\n"
+                report += f"  Video: {'Present' if decrypted_records[id_str]['video'] else 'None'}\n"
+            else:
+                report += f"Record ID: {record.id} (Encrypted)\n"
+                report += "  Data remains encrypted\n"
+        db_session.close()
+
+        # Send activity report
         msg = Message('Your Session Activity Report', recipients=[email])
         msg.body = report
         try:
             mail.send(msg)
             print(f"Activity report sent to {email}")
+            log_activity(email, "Logout", f"Report sent, IP: {ip_address}, Location: {location}")
         except Exception as e:
             print(f"Failed to send activity report to {email}: {e}")
+            log_activity(email, "Logout", f"Report send failed: {e}, IP: {ip_address}")
 
         # Clean up activity log for this user
         del activity_log[email]
@@ -370,6 +418,7 @@ def logout():
 @app.route('/signup', methods=['GET', 'POST'])
 @limiter.limit("5 per minute")
 def signup():
+    ip_address = request.remote_addr
     if request.method == 'POST':
         fname = request.form['fname']
         lname = request.form['lname']
@@ -381,6 +430,7 @@ def signup():
 
         if password != cpassword:
             flash("Passwords do not match!", "danger")
+            log_activity(email, "Signup attempt", f"Passwords do not match, IP: {ip_address}")
             return redirect(url_for('signup'))
 
         try:
@@ -420,13 +470,13 @@ def signup():
 
             flash("Signup successful! OTP sent to your email.", "success")
             print(f"Signup OTP sent for {email}: {otp}")
-            log_activity(email, "Signup", "Successful")
+            log_activity(email, "Signup", f"Successful - Name: {fname} {lname}, DOB: {dob}, Phone: {phno}, IP: {ip_address}")
             return render_template('verify.html', email=email)
 
         except Exception as e:
             flash(f"Error: {str(e)}", "danger")
             print(f"Signup error: {e}")
-            log_activity(email, "Signup failed", str(e))
+            log_activity(email, "Signup failed", f"Error: {str(e)}, IP: {ip_address}")
             return redirect(url_for('signup'))
 
     return render_template('signup.html')
@@ -434,9 +484,10 @@ def signup():
 @app.route('/verify', methods=['POST'])
 @limiter.limit("10 per minute")
 def verify():
+    ip_address = request.remote_addr
     email = request.form['email']
     user_otp = request.form['otp']
-    print(f"POST to /verify - Verifying signup OTP for {email}: {user_otp}")
+    print(f"POST to /verify - Verifying signup OTP for {email}: {user_otp}, IP: {ip_address}")
 
     if email in otp_storage and otp_storage[email] == int(user_otp):
         otp_storage.pop(email)
@@ -449,12 +500,12 @@ def verify():
 
         flash("Signup verified! Now enter your login OTP.", "success")
         print(f"Signup verified, login OTP sent for {email}: {login_otp}")
-        log_activity(email, "Signup verification", "Successful")
+        log_activity(email, "Signup verification", f"Successful, IP: {ip_address}")
         return render_template('verify_login.html', email=email)
     else:
         flash("Invalid OTP! Try again.", "danger")
         print(f"Signup OTP verification failed. Entered: {user_otp}, Stored: {otp_storage.get(email)}")
-        log_activity(email, "Signup verification", "Invalid OTP")
+        log_activity(email, "Signup verification", f"Invalid OTP, IP: {ip_address}")
         return render_template('verify.html', email=email)
 
 if __name__ == '__main__':
