@@ -16,8 +16,15 @@ from cryptography.fernet import Fernet
 # Load environment variables
 load_dotenv()
 
-# Configure logging
-logging.basicConfig(filename='data_operations.log', level=logging.INFO)
+# Configure logging to both file and console
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('app.log'),  # Changed to a generic log file name
+        logging.StreamHandler()
+    ]
+)
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
@@ -29,10 +36,10 @@ try:
     Base = declarative_base()
     Session = sessionmaker(bind=engine)
 except Exception as e:
-    print(f"Error connecting to MySQL: {e}")
+    logging.error(f"Error connecting to MySQL: {e}")
     raise
 
-# Email Configuration
+# Email Configuration (kept in case needed elsewhere, but unused now)
 app.config['MAIL_SERVER'] = os.getenv('MAIL_SERVER')
 app.config['MAIL_PORT'] = int(os.getenv('MAIL_PORT'))
 app.config['MAIL_USE_TLS'] = os.getenv('MAIL_USE_TLS') == 'True'
@@ -99,26 +106,42 @@ def encrypt_data(data, key):
         encrypted = cipher.encrypt(data.encode())
     else:
         encrypted = cipher.encrypt(data)
-    print(f"Encrypted data size: {len(encrypted)} bytes")
+    logging.info(f"Encrypted data size: {len(encrypted)} bytes")
     return encrypted.decode('utf-8') if isinstance(data, str) else encrypted
 
 def decrypt_data(encrypted_data, key):
     cipher = Fernet(key)
     decrypted = cipher.decrypt(encrypted_data.encode('utf-8') if isinstance(encrypted_data, str) else encrypted_data)
-    print(f"Decrypted data size: {len(decrypted)} bytes")
+    logging.info(f"Decrypted data size: {len(decrypted)} bytes")
     return decrypted.decode('utf-8') if isinstance(encrypted_data, str) else decrypted
 
 # Routes
 @app.route('/')
 def index():
-    print("GET request to /index")
+    logging.info("GET request to /index")
     return render_template('login.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form.get('email')
+        password = request.form.get('password')
+        db_session = Session()
+        user = db_session.query(Signup).filter_by(encrypted_email=encrypt_data(email, generate_key_from_user_data(email, "dummy", "01-01-2000", "1234567890"))).first()
+        if user and decrypt_data(user.encrypted_password, generate_key_from_user_data(email, "dummy", "01-01-2000", "1234567890")) == password:
+            session['user'] = email
+            db_session.close()
+            return redirect(url_for('home'))
+        flash("Invalid credentials", "danger")
+        db_session.close()
+    return render_template('login.html')
+
 @app.route('/home', methods=['GET', 'POST'])
 @limiter.limit("50 per day")
 def home():
     if 'user' not in session:
         flash("Please log in first.", "warning")
-        print("No user in session, redirecting to index.")
+        logging.info("No user in session, redirecting to index.")
         return redirect(url_for('index'))
 
     email = session['user']
@@ -127,14 +150,14 @@ def home():
 
     if request.method == 'GET':
         session['decrypted_records'] = {}
-        print("Page refreshed, decrypted records reset.")
+        logging.info("Page refreshed, decrypted records reset.")
         return render_template('home.html', email=email, stack_data=stack_data, total_entries=0)
 
     decrypted_records = session.get('decrypted_records', {})
 
     if request.method == 'POST':
         action = request.form.get('action', None)
-        print("Action received:", action)
+        logging.info(f"Action received: {action}")
 
         if not action:
             flash("No action specified in request", "danger")
@@ -145,7 +168,7 @@ def home():
                 if not all(key in request.form for key in ['name', 'dob', 'phone']):
                     missing = [key for key in ['name', 'dob', 'phone'] if key not in request.form]
                     flash(f"Missing required fields: {', '.join(missing)}", "danger")
-                    print(f"Missing fields: {missing}")
+                    logging.info(f"Missing fields: {missing}")
                     return redirect(url_for('home'))
 
                 name = request.form['name'].strip()
@@ -155,7 +178,7 @@ def home():
                 image = request.files.get('image')
                 video = request.files.get('video')
 
-                print(f"Processing: name='{name}', dob='{dob}', phone='{phone}', notes='{notes}', image={image}, video={video}")
+                logging.info(f"Processing: name='{name}', dob='{dob}', phone='{phone}', notes='{notes}', image={image}, video={video}")
 
                 validate_name(name)
                 validate_dob(dob)
@@ -174,7 +197,7 @@ def home():
                     if image_data:
                         encrypted_image = encrypt_data(image_data, encryption_key)
                     else:
-                        print("Image file is empty")
+                        logging.warning("Image file is empty")
 
                 encrypted_video = None
                 if video and video.filename:
@@ -182,7 +205,7 @@ def home():
                     if video_data:
                         encrypted_video = encrypt_data(video_data, encryption_key)
                     else:
-                        print("Video file is empty")
+                        logging.warning("Video file is empty")
 
                 new_record = UserData(
                     user_email=email,
@@ -208,17 +231,16 @@ def home():
 
                 flash("Data encrypted and stored successfully!", "success")
                 logging.info(f"Data stored for {email}")
-                print(f"Encryption successful for {email}")
+                logging.info(f"Encryption successful for {email}")
 
             except ValueError as ve:
                 db_session.rollback()
                 flash(f"Validation error: {str(ve)}", "danger")
-                print(f"Validation error for {email}: {ve}")
+                logging.error(f"Validation error for {email}: {ve}")
             except Exception as e:
                 db_session.rollback()
                 flash(f"Error: {str(e)}", "danger")
                 logging.error(f"Error while storing data: {e}")
-                print(f"Encryption error for {email}: {e}")
             finally:
                 db_session.close()
                 return redirect(url_for('home'))
@@ -232,12 +254,12 @@ def home():
 
                 if not all([name, dob, phone]):
                     flash("Please provide name, DOB, and phone number for decryption!", "danger")
-                    print("Missing name, dob, or phone for decryption.")
+                    logging.info("Missing name, dob, or phone for decryption.")
                     return redirect(url_for('home'))
 
                 if not selected_ids:
                     flash("No records selected for decryption!", "warning")
-                    print("No IDs selected for decryption.")
+                    logging.info("No IDs selected for decryption.")
                     return redirect(url_for('home'))
 
                 decryption_key = generate_key_from_user_data(email, name, dob, phone)
@@ -253,18 +275,18 @@ def home():
                             'image': base64.b64encode(decrypt_data(record.encrypted_image, decryption_key)).decode('utf-8') if record.encrypted_image else None,
                             'video': base64.b64encode(decrypt_data(record.encrypted_video, decryption_key)).decode('utf-8') if record.encrypted_video else None
                         }
-                        print(f"Decrypted ID {record.id} successfully")
+                        logging.info(f"Decrypted ID {record.id} successfully")
                     except Exception as e:
-                        print(f"Decryption failed for ID {record.id}: {e}")
+                        logging.error(f"Decryption failed for ID {record.id}: {e}")
                         flash(f"Failed to decrypt record ID {record.id}. Wrong name, DOB, or phone?", "danger")
                 session['decrypted_records'] = decrypted_records
 
                 flash("Selected records decrypted successfully!", "success")
-                print(f"Decryption successful for {email}")
+                logging.info(f"Decryption successful for {email}")
 
             except Exception as e:
                 flash(f"Error in decryption: {str(e)}", "danger")
-                print(f"Decryption error for {email}: {e}")
+                logging.error(f"Decryption error for {email}: {e}")
             finally:
                 db_session.close()
                 return redirect(url_for('home'))
@@ -274,7 +296,7 @@ def home():
                 record_id = request.form.get('record_id')
                 if not record_id:
                     flash("No record ID provided for deletion!", "danger")
-                    print("No record_id in delete request")
+                    logging.info("No record_id in delete request")
                     return redirect(url_for('home'))
 
                 record = db_session.query(UserData).filter_by(id=record_id, user_email=email).first()
@@ -285,15 +307,15 @@ def home():
                         del decrypted_records[record_id]
                         session['decrypted_records'] = decrypted_records
                     flash(f"Record {record_id} deleted successfully!", "success")
-                    print(f"Deleted record {record_id} for {email}")
+                    logging.info(f"Deleted record {record_id} for {email}")
                 else:
                     flash(f"Record {record_id} not found or not owned by you!", "danger")
-                    print(f"Record {record_id} not found for {email}")
+                    logging.info(f"Record {record_id} not found for {email}")
 
             except Exception as e:
                 db_session.rollback()
                 flash(f"Error deleting record: {str(e)}", "danger")
-                print(f"Delete error for {email}: {e}")
+                logging.error(f"Delete error for {email}: {e}")
             finally:
                 db_session.close()
                 return redirect(url_for('home'))
@@ -303,7 +325,7 @@ def home():
                 if not all(key in request.form for key in ['name', 'dob', 'phone', 'record_id']):
                     missing = [key for key in ['name', 'dob', 'phone', 'record_id'] if key not in request.form]
                     flash(f"Missing required fields for update: {', '.join(missing)}", "danger")
-                    print(f"Missing fields for update: {missing}")
+                    logging.info(f"Missing fields for update: {missing}")
                     return redirect(url_for('home'))
 
                 name = request.form['name'].strip()
@@ -349,19 +371,19 @@ def home():
                     session['decrypted_records'] = decrypted_records
 
                     flash(f"Record {record_id} updated successfully!", "success")
-                    print(f"Updated record {record_id} for {email}")
+                    logging.info(f"Updated record {record_id} for {email}")
                 else:
                     flash(f"Record {record_id} not found or not owned by you!", "danger")
-                    print(f"Record {record_id} not found for {email}")
+                    logging.info(f"Record {record_id} not found for {email}")
 
             except ValueError as ve:
                 db_session.rollback()
                 flash(f"Validation error: {str(ve)}", "danger")
-                print(f"Validation error for {email}: {ve}")
+                logging.error(f"Validation error for {email}: {ve}")
             except Exception as e:
                 db_session.rollback()
                 flash(f"Error updating record: {str(e)}", "danger")
-                print(f"Update error for {email}: {e}")
+                logging.error(f"Update error for {email}: {e}")
             finally:
                 db_session.close()
                 return redirect(url_for('home'))
@@ -394,49 +416,9 @@ def home():
 
     total_entries = len(records)
     decrypted_count = sum(1 for entry in stack_data if entry['decrypted'])
-    print(f"User {email} accessed home page with {decrypted_count} decrypted items out of {total_entries} total.")
+    logging.info(f"User {email} accessed home page with {decrypted_count} decrypted items out of {total_entries} total.")
     db_session.close()
     return render_template('home.html', email=email, stack_data=stack_data, total_entries=total_entries)
-# Route to handle random photo capture and email sending
-@app.route('/send-security-photo', methods=['POST'])
-def send_security_photo():
-    if 'user' not in session:
-        return jsonify({'status': 'error', 'message': 'Not logged in'}), 401
-
-    email = session['user']
-    image_data = request.json.get('image')
-
-    if not image_data:
-        return jsonify({'status': 'error', 'message': 'No image provided'}), 400
-
-    try:
-        image_bytes = base64.b64decode(image_data.split(',')[1])
-    except Exception as e:
-        print(f"Error decoding image: {e}")
-        return jsonify({'status': 'error', 'message': 'Invalid image data'}), 400
-
-    try:
-        msg = Message(
-            subject="Security Alert: Someone is accessing your NebulaCrypt account",
-            recipients=[email],
-            body=f"Dear User,\n\nWe detected activity on your NebulaCrypt account. Here’s a photo of the user:\n\nIf this isn’t you, click here to terminate the session: {url_for('terminate_session', _external=True)}\n\nStay secure,\nNebulaCrypt Team",
-        )
-        msg.attach("security_photo.png", "image/png", image_bytes)
-        mail.send(msg)
-        print(f"Security photo sent to {email}")
-        return jsonify({'status': 'success', 'message': 'Photo sent to your email'})
-    except Exception as e:
-        print(f"Error sending email: {e}")
-        return jsonify({'status': 'error', 'message': 'Failed to send email'}), 500
-
-# Route to terminate the session
-@app.route('/terminate-session')
-def terminate_session():
-    if 'user' in session:
-        session.pop('user', None)
-        flash("Your session has been terminated due to a security alert.", "warning")
-        print("Session terminated via security link")
-    return redirect(url_for('index'))
 
 @app.errorhandler(400)
 def bad_request(error):
@@ -444,7 +426,7 @@ def bad_request(error):
 
 if __name__ == '__main__':
     try:
-        print("Starting Flask server on http://127.0.0.1:5000")
+        logging.info("Starting Flask server on http://127.0.0.1:5000")
         app.run(host='127.0.0.1', port=5000, debug=True)
     except Exception as e:
-        print(f"Error starting server: {e}")
+        logging.error(f"Error starting server: {e}")
