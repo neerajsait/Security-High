@@ -23,3 +23,12 @@ CREATE TABLE user_data (
 
 
 pip install flask flask-mail flask-limiter sqlalchemy python-dotenv cryptography requests
+
+
+
+
+future 
+add all thses things . Session Hijacking Protection,Encryption at Rest (DB Compromise Protection)
+,CSRF Protection,Secure Email OTPs (for login or file decryption),Log session creation,
+and add these to mail failed logins, OTP attemptsNotify user of new device/session logins to the mail
+
