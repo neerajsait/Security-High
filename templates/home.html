@@ -2,60 +2,178 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - NebulaCrypt Portal</title>
+    <title>Home - Secure Data Storage</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #0a0a23; color: white; }
-        .container { max-width: 800px; margin: 0 auto; }
-        .btn { padding: 10px 20px; margin: 5px; background: #1a1a4d; color: white; border: none; cursor: pointer; }
-        .form-container { display: none; margin-top: 20px; }
-        .input-field { display: block; margin: 10px 0; padding: 5px; width: 100%; max-width: 300px; }
-        .submit-btn { background: #2a2a72; }
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .form-container { margin-bottom: 20px; display: none; } /* Initially hidden */
+        .record { border: 1px solid #ccc; padding: 10px; margin: 10px 0; }
+        .decrypted { background-color: #e0ffe0; }
+        .encrypted { background-color: #f0f0f0; }
+        .flash { padding: 10px; margin-bottom: 10px; }
+        .success { background-color: #d4edda; color: #155724; }
+        .danger { background-color: #f8d7da; color: #721c24; }
+        .action-buttons { margin-top: 10px; }
+        .toggle-buttons { margin-bottom: 20px; }
+        button { cursor: pointer; }
+        
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to NebulaCrypt, {{ email }}</h1>
-        <p>Your cosmic vault awaits. Total entries: {{ total_entries }}</p>
+    <h1>Welcome, {{ email }}</h1>
+    <a href="{{ url_for('logout') }}">Logout</a>
 
-        <!-- Buttons for encrypt/decrypt actions -->
-        <button class="btn encrypt-btn" onclick="toggleForm('encryptForm')">Encrypt Data</button>
-        <button class="btn decrypt-btn" onclick="toggleForm('decryptForm')">Decrypt Selected</button>
-        <a href="{{ url_for('index') }}" class="btn logout-btn">Logout</a>
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message | safe }}</div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 
-        <!-- Encryption Form -->
-        <div class="form-container" id="encryptForm">
-            <form action="{{ url_for('home') }}" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="action" value="encrypt">
-                <input type="text" class="input-field" name="name" placeholder="Full Name" required>
-                <input type="text" class="input-field" name="dob" placeholder="DOB (DD-MM-YYYY)" required>
-                <input type="tel" class="input-field" name="phone" placeholder="Phone Number" required>
-                <input type="text" class="input-field" name="notes" placeholder="Notes">
-                <input type="file" class="input-field" name="image" accept="image/*">
-                <input type="file" class="input-field" name="video" accept="video/*">
-                <button type="submit" class="btn submit-btn">Encrypt & Submit</button>
-            </form>
-        </div>
-
-        <!-- Decrypt Form (simplified for example) -->
-        <div class="form-container" id="decryptForm">
-            <form action="{{ url_for('home') }}" method="post">
-                <input type="hidden" name="action" value="decrypt_selected">
-                <input type="text" class="input-field" name="name" placeholder="Full Name" required>
-                <input type="text" class="input-field" name="dob" placeholder="DOB (DD-MM-YYYY)" required>
-                <input type="tel" class="input-field" name="phone" placeholder="Phone Number" required>
-                <!-- Add checkboxes for selecting records here if needed -->
-                <button type="submit" class="btn submit-btn">Decrypt Selected</button>
-            </form>
-        </div>
+    <!-- Toggle Buttons -->
+    <div class="toggle-buttons">
+        <button onclick="showForm('encrypt-form')">Encrypt Data</button>
+        <button onclick="showForm('decrypt-form')">Decrypt Data</button>
+        <button onclick="showForm('update-form')">Update Data</button>
     </div>
 
+    <!-- Encryption Form -->
+    <div id="encrypt-form" class="form-container">
+        <h2>Encrypt New Data</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="action" value="encrypt">
+            <div>
+                <label>Name:</label>
+                <input type="text" name="name" required>
+            </div>
+            <div>
+                <label>Date of Birth (DD-MM-YYYY):</label>
+                <input type="text" name="dob" required>
+            </div>
+            <div>
+                <label>Phone (10 digits):</label>
+                <input type="text" name="phone" required>
+            </div>
+            <div>
+                <label>Notes:</label>
+                <textarea name="notes"></textarea>
+            </div>
+            <div>
+                <label>Image:</label>
+                <input type="file" name="image">
+            </div>
+            <div>
+                <label>Video:</label>
+                <input type="file" name="video">
+            </div>
+            <button type="submit">Encrypt and Save</button>
+        </form>
+    </div>
+
+    <!-- Decryption Form -->
+    <div id="decrypt-form" class="form-container">
+        <h2>Decrypt Existing Data</h2>
+        <form method="POST">
+            <input type="hidden" name="action" value="decrypt">
+            <div>
+                <label>Record ID:</label>
+                <input type="text" name="record_id" required>
+            </div>
+            <div>
+                <label>Name:</label>
+                <input type="text" name="decrypt_name" required>
+            </div>
+            <div>
+                <label>Date of Birth (DD-MM-YYYY):</label>
+                <input type="text" name="decrypt_dob" required>
+            </div>
+            <div>
+                <label>Phone (10 digits):</label>
+                <input type="text" name="decrypt_phone" required>
+            </div>
+            <button type="submit">Decrypt</button>
+        </form>
+    </div>
+
+    <!-- Update Form -->
+    <div id="update-form" class="form-container">
+        <h2>Update Existing Data</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="action" value="update">
+            <div>
+                <label>Record ID:</label>
+                <input type="text" name="record_id" required>
+            </div>
+            <div>
+                <label>Name:</label>
+                <input type="text" name="update_name" required>
+            </div>
+            <div>
+                <label>Date of Birth (DD-MM-YYYY):</label>
+                <input type="text" name="update_dob" required>
+            </div>
+            <div>
+                <label>Phone (10 digits):</label>
+                <input type="text" name="update_phone" required>
+            </div>
+            <div>
+                <label>Notes:</label>
+                <textarea name="update_notes"></textarea>
+            </div>
+            <div>
+                <label>New Image (optional):</label>
+                <input type="file" name="update_image">
+            </div>
+            <div>
+                <label>New Video (optional):</label>
+                <input type="file" name="update_video">
+            </div>
+            <button type="submit">Update</button>
+        </form>
+    </div>
+
+    <!-- Display Records -->
+    <h2>Your Records (Total: {{ total_entries }})</h2>
+    {% if stack_data %}
+        {% for record in stack_data %}
+            <div class="record {% if record.decrypted %}decrypted{% else %}encrypted{% endif %}">
+                <p><strong>ID:</strong> {{ record.id }}</p>
+                
+                <p><strong>Notes:</strong> {{ record.notes }}</p>
+                {% if record.decrypted and record.image %}
+                    <p><strong>Image:</strong> <img src="data:image/jpeg;base64,{{ record.image }}" alt="Image" style="max-width: 200px;"></p>
+                {% else %}
+                    <p><strong>Image:</strong> {% if record.decrypted %}None{% else %}Encrypted{% endif %}</p>
+                {% endif %}
+                {% if record.decrypted and record.video %}
+                    <p><strong>Video:</strong> <video controls src="data:video/mp4;base64,{{ record.video }}" style="max-width: 200px;"></video></p>
+                {% else %}
+                    <p><strong>Video:</strong> {% if record.decrypted %}None{% else %}Encrypted{% endif %}</p>
+                {% endif %}
+                <p><strong>Status:</strong> {% if record.decrypted %}Decrypted{% else %}Encrypted{% endif %}</p>
+                <div class="action-buttons">
+                    <form method="POST" style="display:inline;">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" name="record_id" value="{{ record.id }}">
+                        <button type="submit" onclick="return confirm('Are you sure you want to delete this record?');">Delete</button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No records found.</p>
+    {% endif %}
+
+    <!-- JavaScript to toggle forms -->
     <script>
-        // Toggle form visibility
-        function toggleForm(formId) {
+        function showForm(formId) {
+            // Hide all forms
             document.querySelectorAll('.form-container').forEach(form => {
-                form.style.display = form.id === formId ? 'block' : 'none';
+                form.style.display = 'none';
             });
+            // Show the selected form
+            document.getElementById(formId).style.display = 'block';
         }
     </script>
 </body>
