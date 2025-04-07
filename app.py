@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, session, redirect, url_for, f
 from flask_mail import Mail, Message
 from flask_limiter import Limiter
 from flask_limiter.util import get_remote_address
-from sqlalchemy import create_engine, Column, String, Integer, LargeBinary
+from sqlalchemy import DateTime, create_engine, Column, String, Integer, LargeBinary, func
 from sqlalchemy.orm import declarative_base, sessionmaker
 from dotenv import load_dotenv
 import os
@@ -16,6 +16,8 @@ from cryptography.fernet import Fernet
 from datetime import datetime
 import requests  # Added for IP geolocation
 from urllib.parse import quote 
+from sqlalchemy.orm import Session
+
 
 
 # In-memory storage for session tokens
@@ -65,7 +67,7 @@ mail = Mail(app)
 limiter = Limiter(
     get_remote_address,
     app=app,
-    default_limits=["100 per day", "10 per hour"]
+    default_limits=["1000 per day", "100 per hour"]
 )
 
 # In-memory OTP and activity storage
@@ -73,6 +75,8 @@ otp_storage = {}
 activity_log = {}
 
 # SQLAlchemy Models
+Base = declarative_base()
+
 class Signup(Base):
     __tablename__ = 'signup'
     id = Column(Integer, primary_key=True)
@@ -87,12 +91,13 @@ class UserData(Base):
     __tablename__ = 'user_data'
     id = Column(Integer, primary_key=True)
     user_email = Column(String(120))
-    encrypted_name = Column(String(500))
-    encrypted_dob = Column(String(500))
-    encrypted_phone = Column(String(500))
+    encrypted_name = Column(String(500), nullable=False)
+    encrypted_dob = Column(String(500), nullable=False)
+    encrypted_phone = Column(String(500), nullable=False)
     encrypted_notes = Column(String(1000), nullable=True)
     encrypted_image = Column(LargeBinary, nullable=True)
     encrypted_video = Column(LargeBinary, nullable=True)
+    created_at = Column(DateTime, default=func.current_timestamp())
 
 # Create tables
 try:
@@ -296,7 +301,7 @@ def verify_login():
     return redirect(url_for('index'))
 
 @app.route('/home', methods=['GET', 'POST'])
-@limiter.limit("50 per day")
+@limiter.limit("500 per day")
 def home():
     if 'user' not in session or 'encrypted_email' not in session or 'session_token' not in session:
         flash("Please log in first.", "warning")
@@ -607,12 +612,7 @@ def logout():
                 id_str = str(record.id)
                 if id_str in decrypted_records:
                     report += f"Record ID: {record.id} (Decrypted)\n"
-                    report += f"  Name: {decrypted_records[id_str]['name']}\n"
-                    report += f"  DOB: {decrypted_records[id_str]['dob']}\n"
-                    report += f"  Phone: {decrypted_records[id_str]['phone']}\n"
-                    report += f"  Notes: {decrypted_records[id_str]['notes']}\n"
-                    report += f"  Image: {'Present' if decrypted_records[id_str]['has_image'] else 'None'}\n"
-                    report += f"  Video: {'Present' if decrypted_records[id_str]['has_video'] else 'None'}\n"
+
                 else:
                     report += f"Record ID: {record.id} (Encrypted)\n"
                     report += "  Data remains encrypted\n"
@@ -751,6 +751,53 @@ def terminate_session():
         print(f"Invalid termination token: {token}")
 
     return redirect(url_for('index'))
+
+@app.route('/history', methods=['GET'])
+@limiter.limit("50 per day")
+def history():
+    # Check if user is logged in and session is valid
+    if 'user' not in session or 'encrypted_email' not in session or 'session_token' not in session:
+        flash("Please log in first.", "warning")
+        print("No user, encrypted email, or session token in session, redirecting to index.")
+        return redirect(url_for('index'))
+
+    email = session['user']
+    encrypted_email = session['encrypted_email']
+    session_token = session['session_token']
+
+    # Validate session token
+    if session_token not in session_tokens or session_tokens[session_token] != email:
+        session.clear()
+        flash("Your session has been terminated. Please log in again.", "warning")
+        print(f"Session token {session_token} invalid or terminated for {email}.")
+        log_activity(email, "Session check", "Session invalidated")
+        return redirect(url_for('index'))
+
+    ip_address = request.remote_addr
+    print(f"Request to /history - IP: {ip_address}")
+    db_session = Session()
+
+    # Fetch all records for the user, ordered by creation time (newest first)
+    records = (db_session.query(UserData)
+               .filter_by(user_email=encrypted_email)
+               .order_by(UserData.created_at.desc())
+               .all())
+
+    # Prepare data for the template
+    history_data = []
+    for record in records:
+        history_data.append({
+            'id': record.id,
+           
+            'created_at': record.created_at.strftime('%Y-%m-%d %H:%M:%S')  # Format timestamp
+        })
+
+    total_entries = len(history_data)
+    print(f"User {email} accessed history page with {total_entries} total entries.")
+    log_activity(email, "History page access", f"Viewed {total_entries} records, IP: {ip_address}")
+
+    db_session.close()
+    return render_template('history.html', email=email, history_data=history_data, total_entries=total_entries)
 
 if __name__ == '__main__':
     try:
