@@ -510,3 +510,573 @@ INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:47:00] "[32mGET /home HTTP/1.1[0m"
 INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:47:00] "GET / HTTP/1.1" 200 -
 INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:47:00] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
 INFO:werkzeug:127.0.0.1 - - [26/Mar/2025 11:47:01] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:06:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:06:07] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:06:07] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:06:11] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:06:45] "POST /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:08:00] "POST /verify HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:08:00] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:08:34] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:08:34] "[32mGET /home HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:08:34] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:08:34] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:08:47] "[32mPOST /send_login_otp HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:08:47] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:08:47] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:09:05] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:09:05] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:09:33] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:09:33] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:10:41] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:10:51] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [06/Apr/2025 21:11:19] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [07/Apr/2025 16:17:58] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [07/Apr/2025 16:17:58] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [07/Apr/2025 16:17:59] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:05:32] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:05:32] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:05:32] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:05:50] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:11:30] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:11:30] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:11:33] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:12:07] "[32mPOST /signup HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:12:07] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:12:32] "[32mPOST /signup HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:12:32] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:12:46] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:15:15] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:20:09] "[32mPOST /signup HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:20:09] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:21:28] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:21:49] "[32mPOST /signup HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:21:49] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:25:29] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:25:55] "[32mPOST /signup HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:25:55] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:26:24] "POST /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:29:11] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:29:11] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:29:13] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:29:39] "[32mPOST /signup HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:29:39] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:30:13] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:31:08] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:31:58] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:32:23] "POST /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:38:34] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:38:34] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:38:36] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:39:10] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:39:37] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:40:11] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:40:37] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:40:59] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:16] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:18] "[33mGET /login.html HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:26] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:27] "[33mGET /login HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:33] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:35] "[33mGET /login HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:49] "[33mGET /login HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:51] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:52] "[33mGET /login.html HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:53] "[33mGET /login.html HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:54] "[33mGET /login.html HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:54] "[33mGET /login.html HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:54] "[33mGET /login.html HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:54] "[33mGET /login.html HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:43:54] "[33mGET /login.html HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:46:15] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:47:00] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:49:27] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:50:08] "[32mPOST /signup HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:50:08] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:50:28] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:51:02] "POST /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:51:41] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:52:02] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:52:03] "[33mGET /login.html HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:52:11] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:52:12] "[33mGET /login HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:52:24] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:52:25] "[33mGET /verify.html HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:06] "[35m[1mGET /signup HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:06] "GET /signup?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:06] "GET /signup?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:06] "GET /signup?__debugger__=yes&cmd=resource&f=console.png&s=Xg9DO3trjA02RA2DAbV0 HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:06] "GET /signup?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:09] "[35m[1mGET /signup HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:09] "[36mGET /signup?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:09] "[36mGET /signup?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:09] "[36mGET /signup?__debugger__=yes&cmd=resource&f=console.png&s=Xg9DO3trjA02RA2DAbV0 HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:09] "[36mGET /signup?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:15] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:17] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:29] "[35m[1mGET /signup HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:29] "[36mGET /signup?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:29] "[36mGET /signup?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:29] "[36mGET /signup?__debugger__=yes&cmd=resource&f=console.png&s=Xg9DO3trjA02RA2DAbV0 HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:53:29] "[36mGET /signup?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:55:45] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:55:47] "[33mGET /login HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 10:56:15] "[33mGET /login HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:01:06] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:01:36] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:01:37] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:01:45] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:02:11] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:02:11] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:02:15] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:02:32] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:02:33] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:02:33] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:02:50] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:08:50] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:08:50] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:08:54] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:09:04] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:15:35] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:16:14] "POST /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:16:42] "POST /verify HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:16:42] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:17:07] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:17:07] "[32mGET /home HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:17:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:17:07] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:17:31] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:17:31] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:17:57] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:17:57] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:18:25] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:18:26] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:18:26] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:18:26] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:18:26] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:18:30] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:18:32] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:18:32] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:18:33] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:18:33] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:18:33] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:18:33] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:18:38] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:07] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:07] "GET /static/data.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:08] "[36mGET /static/data.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:08] "[36mGET /static/data.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:08] "[36mGET /static/data.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:09] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:09] "[36mGET /static/data.png HTTP/1.1[0m" 304 -
+INFO:flask-limiter:ratelimit 10 per 1 hour (127.0.0.1) exceeded at endpoint: index
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:09] "[31m[1mGET / HTTP/1.1[0m" 429 -
+INFO:flask-limiter:ratelimit 10 per 1 hour (127.0.0.1) exceeded at endpoint: index
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:09] "[31m[1mGET / HTTP/1.1[0m" 429 -
+INFO:flask-limiter:ratelimit 10 per 1 hour (127.0.0.1) exceeded at endpoint: index
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:09] "[31m[1mGET / HTTP/1.1[0m" 429 -
+INFO:flask-limiter:ratelimit 10 per 1 hour (127.0.0.1) exceeded at endpoint: index
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:12] "[31m[1mGET / HTTP/1.1[0m" 429 -
+INFO:flask-limiter:ratelimit 10 per 1 hour (127.0.0.1) exceeded at endpoint: index
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:12] "[31m[1mGET / HTTP/1.1[0m" 429 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:22] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:22] "[36mGET /static/data.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:49] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:50] "[36mGET /static/data.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:50] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:50] "[36mGET /static/data.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:51] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:21:51] "[36mGET /static/data.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:23:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:23:08] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:23:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:23:08] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:23:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:23:08] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:29:28] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:29:28] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:29:30] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:29:49] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:30:39] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:30:52] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:31:30] "[33mGET /login HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:34:02] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:34:36] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:34:38] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 11:34:38] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:06:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:06:16] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:06:17] "[33mGET /signup.html HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:06:22] "[33mGET /signup.html HTTP/1.1[0m" 404 -
+INFO:flask-limiter:ratelimit 10 per 1 hour (127.0.0.1) exceeded at endpoint: index
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:06:24] "[31m[1mGET / HTTP/1.1[0m" 429 -
+INFO:flask-limiter:ratelimit 10 per 1 hour (127.0.0.1) exceeded at endpoint: index
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:06:34] "[31m[1mGET / HTTP/1.1[0m" 429 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:06:42] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:06:42] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:06:44] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:37:18] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:37:18] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:37:34] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:37:34] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:38:05] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 12:38:05] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:59:24] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:59:24] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:59:31] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:59:40] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:59:40] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:59:44] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:59:45] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:59:45] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:59:46] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:59:46] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:59:46] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 13:59:46] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:00:29] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:00:46] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:01:52] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:02:03] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:16:16] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:20:11] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:21:00] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:24:12] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:24:12] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:24:19] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:24:19] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:24:33] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:24:33] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:24:55] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:24:55] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:24:55] "GET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:24:55] "GET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:24:55] "GET /home?__debugger__=yes&cmd=resource&f=console.png&s=p1njQWh4oCGiglFvDFDY HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:24:55] "GET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:25:48] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:25:48] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:25:48] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:25:49] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png&s=p1njQWh4oCGiglFvDFDY HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:25:59] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:26:04] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:12] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:12] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:12] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:12] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png&s=p1njQWh4oCGiglFvDFDY HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:12] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:14] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:14] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:14] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:14] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png&s=p1njQWh4oCGiglFvDFDY HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:14] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:15] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:15] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:15] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:15] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png&s=p1njQWh4oCGiglFvDFDY HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:15] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:15] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:15] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:15] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:15] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png&s=p1njQWh4oCGiglFvDFDY HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:15] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug: * Detected change in 'd:\\DF\\Project\\Security-High\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:40] "[32mGET /home HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:40] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:40] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:56] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:30:56] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:31:08] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:31:08] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:31:30] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:31:30] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:31:30] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:31:30] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:31:30] "GET /home?__debugger__=yes&cmd=resource&f=console.png&s=hixBemp59DAaCbUra04H HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:31:30] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:34:29] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:34:29] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:34:29] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:34:29] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png&s=hixBemp59DAaCbUra04H HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:34:29] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:34:36] "[35m[1mGET /history HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:34:36] "GET /history?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:34:36] "GET /history?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:34:36] "GET /history?__debugger__=yes&cmd=resource&f=console.png&s=hixBemp59DAaCbUra04H HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:34:36] "GET /history?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:00] "[35m[1mGET /history HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:00] "[36mGET /history?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:00] "[36mGET /history?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:00] "[36mGET /history?__debugger__=yes&cmd=resource&f=console.png&s=hixBemp59DAaCbUra04H HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:00] "[36mGET /history?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:02] "[35m[1mGET /history HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:02] "[36mGET /history?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:02] "[36mGET /history?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:02] "[36mGET /history?__debugger__=yes&cmd=resource&f=console.png&s=hixBemp59DAaCbUra04H HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:02] "[36mGET /history?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:17] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:17] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:17] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:17] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png&s=hixBemp59DAaCbUra04H HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:22] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:22] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:22] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:22] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png&s=hixBemp59DAaCbUra04H HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:22] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:22] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:22] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:22] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:22] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png&s=hixBemp59DAaCbUra04H HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:22] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:22] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:23] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:23] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:23] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png&s=hixBemp59DAaCbUra04H HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 14:35:23] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:56:08] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:56:08] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:56:10] "GET /signup HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:56:17] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:56:17] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:56:30] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:56:31] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:56:56] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:56:56] "[35m[1mGET /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:56:57] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:56:57] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:56:57] "GET /home?__debugger__=yes&cmd=resource&f=console.png&s=Ud81gO9w9l3D2QSDHkxm HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:56:57] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:59:25] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:59:25] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:59:37] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:59:37] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:59:57] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 19:59:57] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:00:37] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:01:20] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:01:45] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:01:59] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:04:15] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:04:23] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:04:27] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:04:55] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:05:30] "[35m[1mPOST /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:05:30] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:05:30] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:05:30] "GET /home?__debugger__=yes&cmd=resource&f=console.png&s=AnWxp0NYj2eaOOwVZ9VE HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:05:30] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:05:45] "[35m[1mPOST /home HTTP/1.1[0m" 500 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:05:45] "[36mGET /home?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:05:45] "[36mGET /home?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:05:45] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png&s=AnWxp0NYj2eaOOwVZ9VE HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:05:45] "[36mGET /home?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:05:50] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:05:51] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:05:54] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:06:10] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:06:18] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:06:32] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:06:44] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'd:\\DF\\Project\\Security-High\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug: * Detected change in 'd:\\DF\\Project\\Security-High\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:22:51] "[32mGET /history HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:22:51] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:22:51] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:23:04] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:23:04] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:23:26] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:23:26] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:23:31] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:23:33] "GET /history HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:23:38] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:23:57] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:24:02] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:24:06] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:24:10] "GET /history HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:24:19] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:24:27] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:24:30] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:24:33] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:24:50] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:24:56] "GET /history HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:25:02] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:26:44] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:26:58] "GET /history HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:27:05] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:27:08] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:27:13] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:27:16] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:27:22] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:34:51] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:35:20] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:35:33] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'd:\\DF\\Project\\Security-High\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:50:46] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:50:46] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:51:00] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:51:00] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:51:20] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:51:21] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:51:28] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:51:31] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:51:34] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:51:37] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:51:40] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:51:43] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:52:04] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:52:11] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:52:19] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:52:27] "GET /history HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:52:31] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:52:36] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:52:39] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:55:32] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:55:34] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:56:26] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:56:29] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:56:33] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:56:36] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:56:38] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 20:59:11] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 21:00:08] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 21:00:30] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 21:00:34] "GET /history HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 21:00:35] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 21:00:46] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 21:00:53] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 21:00:59] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 21:01:05] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 21:01:19] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 21:01:28] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 21:01:33] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug: * Detected change in 'd:\\DF\\Project\\Security-High\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug: * Detected change in 'd:\\DF\\Project\\Security-High\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:27:16] "[32mPOST /home HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:27:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:27:16] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug: * Detected change in 'd:\\DF\\Project\\Security-High\\app.py', reloading
+INFO:werkzeug: * Restarting with stat
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 731-528-631
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:29:12] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:29:12] "[33mGET /data.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:29:27] "POST /send_login_otp HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:29:28] "[33mGET /static/rocket.png HTTP/1.1[0m" 404 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:30:05] "[32mPOST /verify_login HTTP/1.1[0m" 302 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:30:05] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:30:39] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:31:00] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:31:08] "GET /history HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:31:11] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:31:22] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:31:26] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:31:45] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:31:50] "GET /history HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:31:52] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:32:53] "GET /history HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:32:56] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:33:45] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:35:08] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:35:35] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:35:44] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:35:50] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:35:54] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:36:05] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:36:11] "POST /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:40:03] "GET /history HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:40:08] "GET /home HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:41:48] "GET /history HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [09/Apr/2025 22:41:53] "GET /home HTTP/1.1" 200 -
