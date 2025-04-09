@@ -21,6 +21,7 @@
 <body>
     <h1>Welcome, {{ email }}</h1>
     <a href="{{ url_for('logout') }}">Logout</a>
+    <a href="{{ url_for('history') }}">View History</a>
 
     <!-- Flash Messages -->
     {% with messages = get_flashed_messages(with_categories=true) %}
