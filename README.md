@@ -17,6 +17,7 @@ CREATE TABLE user_data (
     encrypted_notes VARCHAR(1000) NULL,
     encrypted_image LONGBLOB NULL,
     encrypted_video LONGBLOB NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_email) REFERENCES signup(encrypted_email) ON DELETE CASCADE
 );
 

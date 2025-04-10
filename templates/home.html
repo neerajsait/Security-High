@@ -3,32 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Secure Data Storage</title>
+    <title>SecureData - Secure Data Storage</title>
     <style>
         :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #2ecc71;
-            --danger-color: #e74c3c;
-            --light-gray: #f5f7fa;
-            --dark-gray: #34495e;
-            --border-radius: 6px;
-            --box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            --primary-color: #0c0c0c;
+            --secondary-color: #1a1a1a;
+            --accent-color: #00ff41;
+            --danger-color: #ff003c;
+            --text-color: #e0e0e0;
+            --dark-accent: #202020;
+            --border-radius: 2px;
+            --box-shadow: 0 2px 10px rgba(0, 255, 65, 0.15);
+            --glow: 0 0 8px rgba(0, 255, 65, 0.5);
+        }
+
+        @font-face {
+            font-family: 'Matrix Code NFI';
+            src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            font-family: 'Courier New', monospace;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f9fafb;
+            color: var(--text-color);
+            background-color: var(--primary-color);
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.9) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(18, 16, 16, 0.9) 1px, transparent 1px);
+            background-size: 50px 50px;
             padding: 0;
             margin: 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         .container {
@@ -38,18 +64,65 @@
         }
 
         header {
-            background-color: var(--primary-color);
-            color: white;
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
             padding: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: var(--box-shadow);
+            border-bottom: 1px solid var(--accent-color);
+            position: relative;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            opacity: 0.5;
         }
 
         .app-title {
             margin: 0;
             font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 24px;
+            text-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .terminal-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: var(--accent-color);
+            animation: blink 1s step-end infinite;
+            margin-left: 5px;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background-color: rgba(0, 255, 65, 0.2);
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
         }
 
         .user-info {
@@ -60,6 +133,13 @@
         .user-email {
             margin-right: 15px;
             font-weight: 500;
+            color: var(--accent-color);
+            opacity: 0.8;
+            font-size: 14px;
+            padding: 5px 10px;
+            border: 1px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            background-color: rgba(0, 255, 65, 0.05);
         }
 
         nav {
@@ -68,16 +148,24 @@
         }
 
         .nav-link {
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
             padding: 8px 15px;
             border-radius: var(--border-radius);
-            transition: background-color 0.2s;
+            transition: all 0.2s;
             font-weight: 500;
+            border: 1px solid var(--dark-accent);
+            background-color: var(--dark-accent);
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 1px;
         }
 
         .nav-link:hover {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            box-shadow: var(--glow);
+            border-color: var(--accent-color);
         }
 
         .flash {
@@ -86,18 +174,38 @@
             border-radius: var(--border-radius);
             font-weight: 500;
             box-shadow: var(--box-shadow);
+            border-left: 3px solid;
+            background-color: var(--secondary-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flash::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            animation: flash-anim 2s linear infinite;
+        }
+
+        @keyframes flash-anim {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
         }
 
         .success {
-            background-color: #d4edda;
-            color: #155724;
-            border-left: 5px solid #28a745;
+            background-color: rgba(0, 255, 65, 0.1);
+            color: var(--accent-color);
+            border-color: var(--accent-color);
         }
 
         .danger {
-            background-color: #f8d7da;
-            color: #721c24;
-            border-left: 5px solid #dc3545;
+            background-color: rgba(255, 0, 60, 0.1);
+            color: var(--danger-color);
+            border-color: var(--danger-color);
         }
 
         .toggle-buttons {
@@ -109,50 +217,113 @@
 
         .toggle-btn {
             background-color: var(--secondary-color);
-            color: white;
-            border: none;
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
             padding: 12px 20px;
             border-radius: var(--border-radius);
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.2s, transform 0.1s;
-            box-shadow: var(--box-shadow);
+            transition: all 0.3s;
+            box-shadow: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
         }
 
         .toggle-btn:hover {
-            background-color: #2980b9;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            box-shadow: var(--glow);
         }
 
         .toggle-btn:active {
             transform: translateY(2px);
         }
 
+        .toggle-btn::before {
+            content: ">";
+            position: absolute;
+            left: 10px;
+            opacity: 0;
+            transition: all 0.3s;
+        }
+
+        .toggle-btn:hover::before {
+            opacity: 1;
+            left: 15px;
+        }
+
         .form-container {
-            background-color: white;
+            background-color: var(--secondary-color);
             padding: 25px;
             border-radius: var(--border-radius);
             margin-bottom: 30px;
             display: none;
-            box-shadow: var(--box-shadow);
+            border: 1px solid var(--accent-color);
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            animation: formAppear 0.5s ease-out;
+        }
+
+        @keyframes formAppear {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), transparent);
         }
 
         .form-title {
-            color: var(--primary-color);
+            color: var(--accent-color);
             margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid var(--light-gray);
+            border-bottom: 1px solid var(--dark-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+        }
+
+        .form-title::before {
+            content: "[ ";
+            color: var(--accent-color);
+            margin-right: 5px;
+        }
+
+        .form-title::after {
+            content: " ]";
+            color: var(--accent-color);
+            margin-left: 5px;
         }
 
         .form-group {
             margin-bottom: 20px;
+            position: relative;
         }
 
         label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
-            color: var(--dark-gray);
+            color: var(--text-color);
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        label::before {
+            content: ">";
+            color: var(--accent-color);
+            margin-right: 5px;
         }
 
         input[type="text"],
@@ -160,39 +331,91 @@
         textarea {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ddd;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border: 1px solid var(--dark-accent);
             border-radius: var(--border-radius);
-            font-size: 15px;
-            transition: border 0.2s;
+            font-size: 14px;
+            transition: all 0.3s;
+            font-family: 'Courier New', monospace;
         }
 
         input[type="text"]:focus,
         textarea:focus {
-            border-color: var(--secondary-color);
+            border-color: var(--accent-color);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 255, 65, 0.1);
+        }
+
+        input[type="file"] {
+            padding: 10px;
+            background-color: var(--primary-color);
+        }
+
+        input[type="file"]::file-selector-button {
+            color: var(--text-color);
+            background-color: var(--dark-accent);
+            padding: 8px 15px;
+            border: 1px solid var(--dark-accent);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-right: 15px;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
         }
 
         textarea {
             min-height: 100px;
             resize: vertical;
+            background-color: var(--primary-color);
+            color: var(--text-color);
         }
 
         .submit-btn {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
+            background-color: var(--dark-accent);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
             padding: 12px 20px;
             border-radius: var(--border-radius);
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: all 0.3s;
             margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
         }
 
         .submit-btn:hover {
-            background-color: #27ae60;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            box-shadow: var(--glow);
+        }
+
+        .submit-btn::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 5px;
+            height: 5px;
+            background: var(--accent-color);
+            opacity: 0;
+            border-radius: 100%;
+            transform: translate(-50%, -50%);
+            transition: all 0.6s;
+        }
+
+        .submit-btn:hover::after {
+            width: 300px;
+            height: 300px;
+            opacity: 0.1;
         }
 
         .records-section {
@@ -200,8 +423,22 @@
         }
 
         .records-title {
-            color: var(--primary-color);
+            color: var(--accent-color);
             margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--dark-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .records-title::before {
+            content: "//";
+            margin-right: 10px;
+            color: var(--accent-color);
+            opacity: 0.7;
         }
 
         .records-container {
@@ -211,61 +448,98 @@
         }
 
         .record {
-            background-color: white;
+            background-color: var(--secondary-color);
             border-radius: var(--border-radius);
             padding: 20px;
-            box-shadow: var(--box-shadow);
-            transition: transform 0.2s;
+            border: 1px solid var(--dark-accent);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
         .record:hover {
             transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: var(--glow);
+        }
+
+        .record::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-color), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .record:hover::before {
+            opacity: 1;
         }
 
         .decrypted {
-            border-top: 4px solid var(--accent-color);
+            border-left: 3px solid var(--accent-color);
         }
 
         .encrypted {
-            border-top: 4px solid var(--dark-gray);
+            border-left: 3px solid var(--danger-color);
         }
 
         .record-field {
             margin-bottom: 12px;
+            position: relative;
         }
 
         .record-label {
             font-weight: 600;
-            color: var(--dark-gray);
+            color: var(--accent-color);
+            opacity: 0.8;
+            font-size: 12px;
+            display: block;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .record-value {
             word-break: break-word;
+            padding: 5px;
+            background-color: var(--primary-color);
+            border-radius: var(--border-radius);
+            font-size: 14px;
+            font-family: 'Courier New', monospace;
         }
 
         .media-preview {
             max-width: 100%;
             margin-top: 10px;
-            border-radius: 4px;
+            border-radius: 2px;
+            border: 1px solid var(--dark-accent);
         }
 
         .status-badge {
             display: inline-block;
             padding: 5px 10px;
-            border-radius: 50px;
+            border-radius: 2px;
             font-size: 12px;
             font-weight: 600;
             margin-top: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .status-encrypted {
-            background-color: #f0f0f0;
-            color: #666;
+            background-color: rgba(255, 0, 60, 0.1);
+            color: var(--danger-color);
+            border: 1px solid var(--danger-color);
         }
 
         .status-decrypted {
-            background-color: #e0ffe0;
-            color: #155724;
+            background-color: rgba(0, 255, 65, 0.1);
+            color: var(--accent-color);
+            border: 1px solid var(--accent-color);
         }
 
         .action-buttons {
@@ -275,28 +549,86 @@
         }
 
         .delete-btn {
-            background-color: var(--danger-color);
-            color: white;
-            border: none;
+            background-color: var(--dark-accent);
+            color: var(--danger-color);
+            border: 1px solid var(--danger-color);
             padding: 8px 15px;
             border-radius: var(--border-radius);
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 500;
             cursor: pointer;
-            transition: background-color 0.2s;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .delete-btn:hover {
-            background-color: #c0392b;
+            background-color: var(--danger-color);
+            color: var(--primary-color);
+            box-shadow: 0 0 10px rgba(255, 0, 60, 0.3);
         }
 
         .empty-state {
             text-align: center;
             padding: 40px;
-            color: #777;
-            background-color: white;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
             border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+            border: 1px dashed var(--dark-accent);
+            opacity: 0.7;
+        }
+
+        /* Matrix code rain effect in the background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+            opacity: 0.05;
+        }
+
+        /* Status bar at the bottom */
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            padding: 8px 20px;
+            font-size: 12px;
+            border-top: 1px solid var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            z-index: 1000;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .typing-effect::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
         }
 
         @media (max-width: 768px) {
@@ -322,17 +654,27 @@
                 margin-right: 0;
                 margin-bottom: 10px;
             }
+
+            .status-bar {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+                padding: 5px;
+            }
         }
     </style>
 </head>
 <body>
+    <div class="scanline"></div>
+    <div class="matrix-bg" id="matrix"></div>
+    
     <header>
-        <h1 class="app-title">Secure Data Storage</h1>
+        <h1 class="app-title">SecureData_<div class="terminal-cursor"></div></h1>
         <div class="user-info">
             <span class="user-email">{{ email }}</span>
             <nav>
-                <a href="{{ url_for('history') }}" class="nav-link">View History</a>
-                <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+                <a href="{{ url_for('history') }}" class="nav-link">Access Logs</a>
+                <a href="{{ url_for('logout') }}" class="nav-link">Terminate</a>
             </nav>
         </div>
     </header>
@@ -349,152 +691,152 @@
 
         <!-- Toggle Buttons -->
         <div class="toggle-buttons">
-            <button class="toggle-btn" onclick="showForm('encrypt-form')">Encrypt New Data</button>
-            <button class="toggle-btn" onclick="showForm('decrypt-form')">Decrypt Data</button>
-            <button class="toggle-btn" onclick="showForm('update-form')">Update Data</button>
+            <button class="toggle-btn" onclick="showForm('encrypt-form')">Execute Encryption</button>
+            <button class="toggle-btn" onclick="showForm('decrypt-form')">Initiate Decryption</button>
+            <button class="toggle-btn" onclick="showForm('update-form')">Modify Record</button>
         </div>
 
-          <!-- Encryption Form with Custom ID -->
-          <div id="encrypt-form" class="form-container">
-            <h2 class="form-title">Encrypt New Data</h2>
+        <!-- Encryption Form with Custom ID -->
+        <div id="encrypt-form" class="form-container">
+            <h2 class="form-title">Encryption Protocol</h2>
             <form method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="encrypt">
                
                 <div class="form-group">
-                    <label for="name">Name:</label>
+                    <label for="name">Subject Name:</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="dob">Date of Birth (DD-MM-YYYY):</label>
+                    <label for="dob">Temporal Data (DD-MM-YYYY):</label>
                     <input type="text" id="dob" name="dob" required>
                 </div>
                 <div class="form-group">
-                    <label for="phone">Phone (10 digits):</label>
+                    <label for="phone">Contact Sequence (10 digits):</label>
                     <input type="text" id="phone" name="phone" required>
                 </div>
                 <div class="form-group">
-                    <label for="notes">Notes:</label>
+                    <label for="notes">Intelligence Data:</label>
                     <textarea id="notes" name="notes"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="image">Image:</label>
+                    <label for="image">Visual Evidence:</label>
                     <input type="file" id="image" name="image">
                 </div>
                 <div class="form-group">
-                    <label for="video">Video:</label>
+                    <label for="video">Video Surveillance:</label>
                     <input type="file" id="video" name="video">
                 </div>
-                <button type="submit" class="submit-btn">Encrypt and Save</button>
+                <button type="submit" class="submit-btn">Execute Encryption</button>
             </form>
         </div>
 
         <!-- Decryption Form -->
         <div id="decrypt-form" class="form-container">
-            <h2 class="form-title">Decrypt Existing Data</h2>
+            <h2 class="form-title">Decryption Protocol</h2>
             <form method="POST">
                 <input type="hidden" name="action" value="decrypt">
                 <div class="form-group">
-                    <label for="record_id">Record ID:</label>
+                    <label for="record_id">Target ID:</label>
                     <input type="text" id="record_id" name="record_id" required>
                 </div>
                 <div class="form-group">
-                    <label for="decrypt_name">Name:</label>
+                    <label for="decrypt_name">Authentication Key 1:</label>
                     <input type="text" id="decrypt_name" name="decrypt_name" required>
                 </div>
                 <div class="form-group">
-                    <label for="decrypt_dob">Date of Birth (DD-MM-YYYY):</label>
+                    <label for="decrypt_dob">Authentication Key 2 (DD-MM-YYYY):</label>
                     <input type="text" id="decrypt_dob" name="decrypt_dob" required>
                 </div>
                 <div class="form-group">
-                    <label for="decrypt_phone">Phone (10 digits):</label>
+                    <label for="decrypt_phone">Authentication Key 3 (10 digits):</label>
                     <input type="text" id="decrypt_phone" name="decrypt_phone" required>
                 </div>
-                <button type="submit" class="submit-btn">Decrypt</button>
+                <button type="submit" class="submit-btn">Execute Decryption</button>
             </form>
         </div>
 
         <!-- Update Form -->
         <div id="update-form" class="form-container">
-            <h2 class="form-title">Update Existing Data</h2>
+            <h2 class="form-title">Modification Protocol</h2>
             <form method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="action" value="update">
                 <div class="form-group">
-                    <label for="update_record_id">Record ID:</label>
+                    <label for="update_record_id">Target ID:</label>
                     <input type="text" id="update_record_id" name="record_id" required>
                 </div>
                 <div class="form-group">
-                    <label for="update_name">Name:</label>
+                    <label for="update_name">Subject Name:</label>
                     <input type="text" id="update_name" name="update_name" required>
                 </div>
                 <div class="form-group">
-                    <label for="update_dob">Date of Birth (DD-MM-YYYY):</label>
+                    <label for="update_dob">Temporal Data (DD-MM-YYYY):</label>
                     <input type="text" id="update_dob" name="update_dob" required>
                 </div>
                 <div class="form-group">
-                    <label for="update_phone">Phone (10 digits):</label>
+                    <label for="update_phone">Contact Sequence (10 digits):</label>
                     <input type="text" id="update_phone" name="update_phone" required>
                 </div>
                 <div class="form-group">
-                    <label for="update_notes">Notes:</label>
+                    <label for="update_notes">Intelligence Data:</label>
                     <textarea id="update_notes" name="update_notes"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="update_image">New Image (optional):</label>
+                    <label for="update_image">New Visual Evidence (optional):</label>
                     <input type="file" id="update_image" name="update_image">
                 </div>
                 <div class="form-group">
-                    <label for="update_video">New Video (optional):</label>
+                    <label for="update_video">New Video Surveillance (optional):</label>
                     <input type="file" id="update_video" name="update_video">
                 </div>
-                <button type="submit" class="submit-btn">Update</button>
+                <button type="submit" class="submit-btn">Execute Modification</button>
             </form>
         </div>
 
         <!-- Display Records -->
         <div class="records-section">
-            <h2 class="records-title">Your Records (Total: {{ total_entries }})</h2>
+            <h2 class="records-title">Secure Storage ({{ total_entries }} Records)</h2>
             
             {% if stack_data %}
                 <div class="records-container">
                     {% for record in stack_data %}
                         <div class="record {% if record.decrypted %}decrypted{% else %}encrypted{% endif %}">
                             <div class="record-field">
-                                <span class="record-label">ID:</span>
+                                <span class="record-label">Record ID:</span>
                                 <span class="record-value">{{ record.id }}</span>
                             </div>
                             
                             <div class="record-field">
-                                <span class="record-label">Notes:</span>
+                                <span class="record-label">Intelligence Data:</span>
                                 <p class="record-value">{{ record.notes }}</p>
                             </div>
                             
                             <div class="record-field">
-                                <span class="record-label">Image:</span>
+                                <span class="record-label">Visual Evidence:</span>
                                 {% if record.decrypted and record.image %}
                                     <img src="data:image/jpeg;base64,{{ record.image }}" alt="Image" class="media-preview">
                                 {% else %}
-                                    <span class="record-value">{% if record.decrypted %}None{% else %}Encrypted{% endif %}</span>
+                                    <span class="record-value">{% if record.decrypted %}None{% else %}[ ENCRYPTED ]{% endif %}</span>
                                 {% endif %}
                             </div>
                             
                             <div class="record-field">
-                                <span class="record-label">Video:</span>
+                                <span class="record-label">Video Surveillance:</span>
                                 {% if record.decrypted and record.video %}
                                     <video controls src="data:video/mp4;base64,{{ record.video }}" class="media-preview"></video>
                                 {% else %}
-                                    <span class="record-value">{% if record.decrypted %}None{% else %}Encrypted{% endif %}</span>
+                                    <span class="record-value">{% if record.decrypted %}None{% else %}[ ENCRYPTED ]{% endif %}</span>
                                 {% endif %}
                             </div>
                             
                             <div class="status-badge status-{% if record.decrypted %}decrypted{% else %}encrypted{% endif %}">
-                                {% if record.decrypted %}Decrypted{% else %}Encrypted{% endif %}
+                                {% if record.decrypted %}DECRYPTED{% else %}ENCRYPTED{% endif %}
                             </div>
                             
                             <div class="action-buttons">
                                 <form method="POST" style="display:inline;">
                                     <input type="hidden" name="action" value="delete">
                                     <input type="hidden" name="record_id" value="{{ record.id }}">
-                                    <button type="submit" class="delete-btn" onclick="return confirm('Are you sure you want to delete this record?');">Delete</button>
+                                    <button type="submit" class="delete-btn" onclick="return confirm('WARNING: Permanent deletion. Proceed?');">Destroy</button>
                                 </form>
                             </div>
                         </div>
@@ -502,25 +844,106 @@
                 </div>
             {% else %}
                 <div class="empty-state">
-                    <p>No records found. Create a new encrypted record to get started.</p>
+                    <p>[ NO RECORDS FOUND ] Execute encryption protocol to initialize database.</p>
                 </div>
             {% endif %}
         </div>
     </div>
 
-    <!-- JavaScript to toggle forms -->
+    <div class="status-bar">
+        <div class="status-indicator">
+            <div class="status-dot"></div>
+            <span>SECURE CONNECTION ESTABLISHED</span>
+        </div>
+        <div class="typing-effect" id="statusMessage">System ready</div>
+    </div>
+
+    <!-- JavaScript to toggle forms and add cyberpunk effects -->
     <script>
-        function showForm(formId) {
-            // Hide all forms
-            document.querySelectorAll('.form-container').forEach(form => {
+        // Initialize forms to be hidden on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hide all forms initially
+            const forms = document.querySelectorAll('.form-container');
+            forms.forEach(form => {
                 form.style.display = 'none';
             });
-            // Show the selected form
-            document.getElementById(formId).style.display = 'block';
-            
-            // Scroll to the form
-            document.getElementById(formId).scrollIntoView({behavior: "smooth"});
+        });
+    
+        // Show specific form when button is clicked
+        function showForm(formId) {
+            try {
+                // Hide all forms
+                const forms = document.querySelectorAll('.form-container');
+                forms.forEach(form => {
+                    form.style.display = 'none';
+                });
+    
+                // Show the selected form
+                const targetForm = document.getElementById(formId);
+                if (targetForm) {
+                    targetForm.style.display = 'block';
+                    
+                    // Scroll to the form smoothly
+                    targetForm.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Update status message
+                    updateStatus('Executing ' + formId.replace('-form', '') + ' protocol...');
+                } else {
+                    console.error(`Form with ID ${formId} not found`);
+                    updateStatus('Error: Protocol not found');
+                }
+            } catch (error) {
+                console.error('Error in showForm:', error);
+                updateStatus('System Error: Check console');
+            }
         }
+    
+        // Update status bar message
+        function updateStatus(message) {
+            const statusElement = document.getElementById('statusMessage');
+            if (statusElement) {
+                statusElement.textContent = message;
+            }
+        }
+    
+        // Matrix code rain effect (keeping your existing code)
+        function setupMatrixBackground() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            document.getElementById('matrix').appendChild(canvas);
+            
+            const characters = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789";
+            const columns = Math.floor(canvas.width / 20);
+            const drops = [];
+            
+            for (let i = 0; i < columns; i++) {
+                drops[i] = Math.random() * -100;
+            }
+    
+            function draw() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#00ff41';
+                ctx.font = '15px monospace';
+                
+                for (let i = 0; i < drops.length; i++) {
+                    const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                    ctx.fillText(text, i * 20, drops[i] * 20);
+                    
+                    if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    drops[i]++;
+                }
+            }
+            
+            setInterval(draw, 50);
+        }
+    
+        // Initialize matrix background
+        setupMatrixBackground();
     </script>
-</body>
-</html>

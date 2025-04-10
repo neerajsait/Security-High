@@ -14,18 +14,16 @@ import logging
 import secrets
 from cryptography.fernet import Fernet
 from datetime import datetime
-import requests  # Added for IP geolocation
-from urllib.parse import quote 
+import requests
+from urllib.parse import quote
 from sqlalchemy.orm import Session
-
-
 
 # In-memory storage for session tokens
 session_tokens = {}  # Format: {token: email}
 
 # Helper function to generate a unique session token
 def generate_session_token():
-    return secrets.token_urlsafe(32)  # 32 bytes of random URL-safe text
+    return secrets.token_urlsafe(32)
 
 # Helper function to terminate a session by token
 def terminate_session(token):
@@ -75,8 +73,6 @@ otp_storage = {}
 activity_log = {}
 
 # SQLAlchemy Models
-Base = declarative_base()
-
 class Signup(Base):
     __tablename__ = 'signup'
     id = Column(Integer, primary_key=True)
@@ -100,11 +96,7 @@ class UserData(Base):
     created_at = Column(DateTime, default=func.current_timestamp())
 
 # Create tables
-try:
-    Base.metadata.create_all(engine)
-except Exception as e:
-    print(f"Error creating tables: {e}")
-    raise
+Base.metadata.create_all(engine)
 
 # Helper function to get location from IP
 def get_location_from_ip(ip_address):
@@ -124,6 +116,41 @@ def log_activity(email, action, details=""):
         activity_log[email] = []
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     activity_log[email].append(f"{timestamp} - {action}: {details}")
+
+# New function to notify user about record actions
+def notify_user_record_action(email, action, record_id, details="", mail_instance=mail):
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    ip_address = request.remote_addr
+    location = get_location_from_ip(ip_address)
+    
+    subject = f"CyberVault: Record {action.capitalize()} Notification"
+    body = (
+        f"Dear User,\n\n"
+        f"A {action} action was performed on your CyberVault record.\n\n"
+        f"Details:\n"
+        f"- Action: {action.capitalize()}\n"
+        f"- Record ID: {record_id}\n"
+        f"- Timestamp: {timestamp}\n"
+        f"- IP Address: {ip_address}\n"
+        f"- Location: {location}\n"
+    )
+    if details:
+        body += f"- Additional Info: {details}\n"
+    body += (
+        "\nIf this action was not performed by you, please secure your account immediately.\n"
+        "Contact support if you need assistance.\n\n"
+        "Regards,\nCyberVault Security Team"
+    )
+    
+    msg = Message(subject, recipients=[email])
+    msg.body = body
+    try:
+        mail_instance.send(msg)
+        print(f"Record {action} notification sent to {email} for Record ID: {record_id}")
+        log_activity(email, f"{action} notification", f"Email sent for Record ID: {record_id}")
+    except Exception as e:
+        print(f"Failed to send {action} notification to {email}: {e}")
+        log_activity(email, f"{action} notification failed", f"Error: {e}")
 
 # Encryption/Decryption Helper Functions
 def validate_name(name):
@@ -149,7 +176,7 @@ def generate_output(first_name, last_name, dob, phone):
 def generate_key_from_user_data(name, dob, phone):
     combined = f"{name}{dob}{phone}".encode()
     hash_digest = hashlib.sha256(combined).digest()
-    key = base64.urlsafe_b64encode(hash_digest[:32])  # Fernet requires a 32-byte base64-encoded key
+    key = base64.urlsafe_b64encode(hash_digest[:32])
     print(f"Generated key: {key}")
     return key
 
@@ -224,7 +251,6 @@ def send_login_otp():
     log_activity(email, "Login attempt", f"OTP sent, IP: {ip_address}")
     return render_template('verify_login.html', email=email)
 
-
 @app.route('/verify_login', methods=['GET', 'POST'])
 @limiter.limit("10 per minute")
 def verify_login():
@@ -261,7 +287,7 @@ def verify_login():
                 session['session_token'] = session_token  # Store token in session for validation
 
                 # Send login notification email with termination link
-                termination_link = url_for('terminate_session', token=quote(session_token), _external=True)
+                termination_link = url_for('terminate_session_route', token=quote(session_token), _external=True)  # Fixed endpoint name
                 msg = Message('Login Notification', recipients=[email])
                 msg.body = (
                     f"Someone logged into your account at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} from IP: {ip_address}.\n\n"
@@ -299,6 +325,7 @@ def verify_login():
     flash("Please enter your email first.", "warning")
     log_activity(email, "Login attempt", f"No email provided, IP: {ip_address}")
     return redirect(url_for('index'))
+
 @app.route('/home', methods=['GET', 'POST'])
 @limiter.limit("500 per day")
 def home():
@@ -382,6 +409,8 @@ def home():
                 print(f"Encryption successful for {email}, ID: {record_id}")
                 log_activity(email, "Data encryption", f"Record ID {record_id} created, IP: {ip_address}")
 
+                notify_user_record_action(email, "created", record_id, f"New record encrypted with name: {name}")
+
             except ValueError as ve:
                 db_session.rollback()
                 flash(f"Error: {str(ve)}", "danger")
@@ -454,6 +483,72 @@ def home():
                 print(f"Decryption error for {email}: {e}")
                 log_activity(email, "Data decryption failed", f"Error: {str(e)}, IP: {ip_address}")
 
+        elif action == 'update':
+            try:
+                record_id = request.form.get('record_id', '')
+                name = request.form.get('update_name', '')
+                dob = request.form.get('update_dob', '')
+                phone = request.form.get('update_phone', '')
+                notes = request.form.get('update_notes', '')
+                image = request.files.get('update_image')
+                video = request.files.get('update_video')
+
+                if not (record_id and name and dob and phone):
+                    raise ValueError("Record ID, Name, DOB, and phone are required for update.")
+
+                validate_name(name.split()[0])
+                validate_dob(dob)
+                validate_phone(phone)
+
+                record = db_session.query(UserData).filter_by(id=int(record_id), user_email=encrypted_email).first()
+                if not record:
+                    raise ValueError("Record not found or does not belong to this user.")
+
+                encryption_key = generate_key_from_user_data(name, dob, phone)
+                encrypted_name = encrypt_data(name, encryption_key)
+                encrypted_dob = encrypt_data(dob, encryption_key)
+                encrypted_phone = encrypt_data(phone, encryption_key)
+                encrypted_notes = encrypt_data(notes, encryption_key) if notes else record.encrypted_notes
+                encrypted_image = encrypt_data(image.read(), encryption_key) if image and image.filename else record.encrypted_image
+                encrypted_video = encrypt_data(video.read(), encryption_key) if video and video.filename else record.encrypted_video
+
+                record.encrypted_name = encrypted_name
+                record.encrypted_dob = encrypted_dob
+                record.encrypted_phone = encrypted_phone
+                record.encrypted_notes = encrypted_notes
+                record.encrypted_image = encrypted_image
+                record.encrypted_video = encrypted_video
+
+                db_session.commit()
+
+                if record_id in decrypted_records:
+                    decrypted_records[record_id] = {
+                        'name': name,
+                        'dob': dob,
+                        'phone': phone,
+                        'notes': notes,
+                        'has_image': bool(encrypted_image),
+                        'has_video': bool(encrypted_video)
+                    }
+                    session['decrypted_records'] = decrypted_records
+
+                flash(f"Record '{record_id}' updated successfully!", "success")
+                print(f"Update successful for {email}, Record ID: {record_id}")
+                log_activity(email, "Data update", f"Record ID {record_id} updated, IP: {ip_address}")
+
+                notify_user_record_action(email, "updated", record_id, f"Record updated with name: {name}")
+
+            except ValueError as ve:
+                db_session.rollback()
+                flash(f"Update error: {str(ve)}", "danger")
+                print(f"Update error for {email}: {ve}")
+                log_activity(email, "Data update failed", f"Error: {str(ve)}, IP: {ip_address}")
+            except Exception as e:
+                db_session.rollback()
+                flash(f"Update error: {str(e)}", "danger")
+                print(f"Update error for {email}: {e}")
+                log_activity(email, "Data update failed", f"Error: {str(e)}, IP: {ip_address}")
+
         elif action == 'delete':
             try:
                 record_id = request.form.get('record_id', '').strip()
@@ -478,6 +573,8 @@ def home():
                 flash(f"Record {record_id} deleted successfully!", "success")
                 print(f"Deletion successful for {email}, Record ID: {record_id}")
                 log_activity(email, "Data deletion", f"Record ID {record_id} deleted, IP: {ip_address}")
+
+                notify_user_record_action(email, "deleted", record_id)
 
             except ValueError as ve:
                 db_session.rollback()
@@ -530,7 +627,6 @@ def logout():
     location = get_location_from_ip(ip_address)
 
     if email:
-        # Remove session token if it exists
         session_token = session.get('session_token')
         if session_token and session_token in session_tokens:
             session_tokens.pop(session_token)
@@ -551,7 +647,6 @@ def logout():
                 id_str = str(record.id)
                 if id_str in decrypted_records:
                     report += f"Record ID: {record.id} (Decrypted)\n"
-
                 else:
                     report += f"Record ID: {record.id} (Encrypted)\n"
                     report += "  Data remains encrypted\n"
@@ -668,7 +763,7 @@ def verify():
         return render_template('verify.html', email=email)
 
 @app.route('/terminate_session', methods=['GET'])
-def terminate_session():
+def terminate_session_route():
     token = request.args.get('token')
     if not token:
         flash("No termination token provided.", "danger")
@@ -676,7 +771,6 @@ def terminate_session():
 
     email = terminate_session(token)
     if email:
-        # Clear the session if it matches the terminated token
         if session.get('session_token') == token:
             session.clear()
             flash("Session terminated successfully!", "success")
@@ -694,7 +788,6 @@ def terminate_session():
 @app.route('/history', methods=['GET'])
 @limiter.limit("50 per day")
 def history():
-    # Check if user is logged in and session is valid
     if 'user' not in session or 'encrypted_email' not in session or 'session_token' not in session:
         flash("Please log in first.", "warning")
         print("No user, encrypted email, or session token in session, redirecting to index.")
@@ -704,7 +797,6 @@ def history():
     encrypted_email = session['encrypted_email']
     session_token = session['session_token']
 
-    # Validate session token
     if session_token not in session_tokens or session_tokens[session_token] != email:
         session.clear()
         flash("Your session has been terminated. Please log in again.", "warning")
@@ -716,19 +808,13 @@ def history():
     print(f"Request to /history - IP: {ip_address}")
     db_session = Session()
 
-    # Fetch all records for the user, ordered by creation time (newest first)
-    records = (db_session.query(UserData)
-               .filter_by(user_email=encrypted_email)
-               .order_by(UserData.created_at.desc())
-               .all())
+    records = db_session.query(UserData).filter_by(user_email=encrypted_email).order_by(UserData.created_at.desc()).all()
 
-    # Prepare data for the template
     history_data = []
     for record in records:
         history_data.append({
             'id': record.id,
-           
-            'created_at': record.created_at.strftime('%Y-%m-%d %H:%M:%S')  # Format timestamp
+            'created_at': record.created_at.strftime('%Y-%m-%d %H:%M:%S')
         })
 
     total_entries = len(history_data)
