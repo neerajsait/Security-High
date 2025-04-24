@@ -81,7 +81,6 @@ class Signup(Base):
     encrypted_dob = Column(String(500))
     encrypted_phno = Column(String(500))
     encrypted_email = Column(String(500), unique=True)
-    encrypted_password = Column(String(500))
 
 class UserData(Base):
     __tablename__ = 'user_data'
@@ -173,8 +172,8 @@ def generate_output(first_name, last_name, dob, phone):
     phone_middle = phone[3:7]
     return last_part + dob_sum + first_part + phone_middle
 
-def generate_key_from_user_data(name, dob, phone):
-    combined = f"{name}{dob}{phone}".encode()
+def generate_key_from_user_data(email, context):
+    combined = f"{email}{context}".encode()
     hash_digest = hashlib.sha256(combined).digest()
     key = base64.urlsafe_b64encode(hash_digest[:32])
     print(f"Generated key: {key}")
@@ -209,7 +208,6 @@ def index():
 @limiter.limit("5 per minute")
 def send_login_otp():
     email = request.form['email']
-    password = request.form['password']
     ip_address = request.remote_addr
     print(f"POST request received with email: {email}, IP: {ip_address}")
     
@@ -217,24 +215,22 @@ def send_login_otp():
     users = db_session.query(Signup).all()
     db_session.close()
 
-    encryption_key = generate_key_from_user_data(email, "signup", password)
+    encryption_key = generate_key_from_user_data(email, "signup")
     user = None
     
     for u in users:
         try:
             decrypted_email = decrypt_data(u.encrypted_email, encryption_key)
             if decrypted_email == email:
-                decrypted_password = decrypt_data(u.encrypted_password, encryption_key)
-                if decrypted_password == password:
-                    user = u
-                    break
+                user = u
+                break
         except Exception:
             continue
 
     if not user:
-        flash("Invalid email or password! Please try again or <a href='/signup' class='alert-link'>Sign Up</a>.", "danger")
-        print(f"Login failed for {email}: No matching user or incorrect credentials.")
-        log_activity(email, "Login attempt", f"Failed - Invalid credentials, IP: {ip_address}")
+        flash("Email not found! Please sign up.", "danger")
+        print(f"Login failed for {email}: Email not registered.")
+        log_activity(email, "Login attempt", f"Failed - Email not found, IP: {ip_address}")
         return redirect(url_for('index'))
 
     otp = random.randint(100000, 999999)
@@ -247,7 +243,6 @@ def send_login_otp():
     flash("OTP sent successfully! Check your email.", "success")
     print(f"Login OTP sent for {email}: {otp}")
     session['pending_login_email'] = email
-    session['login_password'] = password  # Store password temporarily
     log_activity(email, "Login attempt", f"OTP sent, IP: {ip_address}")
     return render_template('verify_login.html', email=email)
 
@@ -259,7 +254,6 @@ def verify_login():
         try:
             email = request.form['email']
             user_otp = request.form['otp']
-            password = session.get('login_password')
             print(f"POST to /verify_login - Verifying OTP for {email}: {user_otp}, stored OTP: {otp_storage.get(email)}, IP: {ip_address}")
 
             if email in otp_storage and otp_storage[email] == int(user_otp):
@@ -270,7 +264,7 @@ def verify_login():
                 # Fetch encrypted email
                 db_session = Session()
                 users = db_session.query(Signup).all()
-                encryption_key = generate_key_from_user_data(email, "signup", password)
+                encryption_key = generate_key_from_user_data(email, "signup")
                 for u in users:
                     try:
                         decrypted_email = decrypt_data(u.encrypted_email, encryption_key)
@@ -284,10 +278,10 @@ def verify_login():
                 # Generate and store session token
                 session_token = generate_session_token()
                 session_tokens[session_token] = email
-                session['session_token'] = session_token  # Store token in session for validation
+                session['session_token'] = session_token
 
                 # Send login notification email with termination link
-                termination_link = url_for('terminate_session_route', token=quote(session_token), _external=True)  # Fixed endpoint name
+                termination_link = url_for('terminate_session_route', token=quote(session_token), _external=True)
                 msg = Message('Login Notification', recipients=[email])
                 msg.body = (
                     f"Someone logged into your account at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} from IP: {ip_address}.\n\n"
@@ -301,7 +295,6 @@ def verify_login():
                 except Exception as e:
                     print(f"Failed to send login notification to {email}: {e}")
 
-                session.pop('login_password', None)
                 flash("Login successful! A notification has been sent to your email.", "success")
                 print("Login OTP verified, redirecting to home.")
                 log_activity(email, "Login", f"Successful, IP: {ip_address}, Token: {session_token}")
@@ -383,7 +376,7 @@ def home():
                 validate_dob(dob)
                 validate_phone(phone)
 
-                encryption_key = generate_key_from_user_data(name, dob, phone)
+                encryption_key = generate_key_from_user_data(email, "record")
 
                 encrypted_name = encrypt_data(name, encryption_key)
                 encrypted_dob = encrypt_data(dob, encryption_key)
@@ -436,7 +429,7 @@ def home():
                 validate_dob(dob)
                 validate_phone(phone)
 
-                decryption_key = generate_key_from_user_data(name, dob, phone)
+                decryption_key = generate_key_from_user_data(email, "record")
                 record = db_session.query(UserData).filter_by(id=int(record_id), user_email=encrypted_email).first()
 
                 if not record:
@@ -504,7 +497,7 @@ def home():
                 if not record:
                     raise ValueError("Record not found or does not belong to this user.")
 
-                encryption_key = generate_key_from_user_data(name, dob, phone)
+                encryption_key = generate_key_from_user_data(email, "record")
                 encrypted_name = encrypt_data(name, encryption_key)
                 encrypted_dob = encrypt_data(dob, encryption_key)
                 encrypted_phone = encrypt_data(phone, encryption_key)
@@ -591,7 +584,7 @@ def home():
     for record in records:
         id_str = str(record.id)
         if id_str in decrypted_records:
-            decryption_key = generate_key_from_user_data(decrypted_records[id_str]['name'], decrypted_records[id_str]['dob'], decrypted_records[id_str]['phone'])
+            decryption_key = generate_key_from_user_data(email, "record")
             stack_data.append({
                 'id': record.id,
                 'name': decrypted_records[id_str]['name'],
@@ -679,13 +672,6 @@ def signup():
         dob = request.form['dob']
         phno = request.form['phno']
         email = request.form['email']
-        password = request.form['password']
-        cpassword = request.form['cpassword']
-
-        if password != cpassword:
-            flash("Passwords do not match!", "danger")
-            log_activity(email, "Signup attempt", f"Passwords do not match, IP: {ip_address}")
-            return redirect(url_for('signup'))
 
         try:
             validate_name(fname)
@@ -693,14 +679,13 @@ def signup():
             validate_dob(dob)
             validate_phone(phno)
 
-            encryption_key = generate_key_from_user_data(email, "signup", password)
+            encryption_key = generate_key_from_user_data(email, "signup")
 
             encrypted_fname = encrypt_data(fname, encryption_key)
             encrypted_lname = encrypt_data(lname, encryption_key)
             encrypted_dob = encrypt_data(dob, encryption_key)
             encrypted_phno = encrypt_data(phno, encryption_key)
             encrypted_email = encrypt_data(email, encryption_key)
-            encrypted_password = encrypt_data(password, encryption_key)
 
             db_session = Session()
             new_user = Signup(
@@ -708,8 +693,7 @@ def signup():
                 encrypted_lname=encrypted_lname,
                 encrypted_dob=encrypted_dob,
                 encrypted_phno=encrypted_phno,
-                encrypted_email=encrypted_email,
-                encrypted_password=encrypted_password
+                encrypted_email=encrypted_email
             )
             db_session.add(new_user)
             db_session.commit()
