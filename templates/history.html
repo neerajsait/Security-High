@@ -2,49 +2,468 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>History - {{ email }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Logs - SecureData</title>
     <style>
+        :root {
+            --primary-color: #0c0c0c;
+            --secondary-color: #1a1a1a;
+            --accent-color: #00ff41;
+            --danger-color: #ff003c;
+            --text-color: #e0e0e0;
+            --dark-accent: #202020;
+            --border-radius: 2px;
+            --box-shadow: 0 2px 10px rgba(0, 255, 65, 0.15);
+            --glow: 0 0 8px rgba(0, 255, 65, 0.5);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--primary-color);
+            background-image: 
+                linear-gradient(rgba(18, 16, 16, 0.9) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(18, 16, 16, 0.9) 1px, transparent 1px);
+            background-size: 50px 50px;
+            padding: 0;
+            margin: 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 25px;
+            background-color: var(--secondary-color);
+            border-radius: var(--border-radius);
+            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            border: 1px solid var(--accent-color);
+            position: relative;
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent-color), transparent);
+        }
+
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background-color: rgba(0, 255, 65, 0.2);
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--dark-accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 24px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        h1::before {
+            content: "//";
+            margin-right: 10px;
+            color: var(--accent-color);
+            opacity: 0.7;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: var(--primary-color);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--dark-accent);
+        }
+
+        .total-entries {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            padding: 8px 16px;
+            border-radius: 2px;
+            display: inline-block;
+            border: 1px solid var(--accent-color);
+            background-color: rgba(0, 255, 65, 0.05);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
+            margin: 20px 0;
+            background-color: var(--primary-color);
+            border: 1px solid var(--dark-accent);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
+
         th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
+            padding: 12px 15px;
             text-align: left;
+            border-bottom: 1px solid var(--dark-accent);
         }
+
         th {
-            background-color: #f2f2f2;
+            background-color: var(--dark-accent);
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+
+        td {
+            font-family: 'Courier New', monospace;
+        }
+
+        tr:hover {
+            background-color: rgba(0, 255, 65, 0.05);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 10px 20px;
+            border: 1px solid var(--accent-color);
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background-color: var(--dark-accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .back-link:hover {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            box-shadow: var(--glow);
+        }
+
+        .back-link::before {
+            content: "<<";
+            margin-right: 10px;
+            transition: transform 0.3s;
+        }
+
+        .back-link:hover::before {
+            transform: translateX(-3px);
+        }
+
+        .success {
+            background-color: rgba(0, 255, 65, 0.1);
+            color: var(--accent-color);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            border-left: 3px solid var(--accent-color);
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .success::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+            animation: flash-anim 2s linear infinite;
+        }
+
+        @keyframes flash-anim {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .error {
+            background-color: rgba(255, 0, 60, 0.1);
+            color: var(--danger-color);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            border-left: 3px solid var(--danger-color);
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .error::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 0, 60, 0.05), transparent);
+            animation: flash-anim 2s linear infinite;
+        }
+
+        /* Matrix code rain effect in the background */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+            opacity: 0.05;
+        }
+
+        /* Terminal blinking cursor */
+        .terminal-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 20px;
+            background-color: var(--accent-color);
+            animation: blink 1s step-end infinite;
+            margin-left: 5px;
+            vertical-align: text-bottom;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Status bar at the bottom */
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--secondary-color);
+            color: var(--accent-color);
+            padding: 8px 20px;
+            font-size: 12px;
+            border-top: 1px solid var(--accent-color);
+            display: flex;
+            justify-content: space-between;
+            z-index: 1000;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .typing-effect::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+        }
+
+        .timestamp {
+            font-family: 'Courier New', monospace;
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .stats {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .total-entries {
+                margin-bottom: 10px;
+            }
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+            .status-bar {
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+                padding: 5px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>History for {{ email }}</h1>
-    <p>Total Entries: {{ total_entries }}</p>
-    {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, message in messages %}
-                <p class="{{ category }}">{{ message }}</p>
-            {% endfor %}
-        {% endif %}
-    {% endwith %}
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                
-                <th>Created At</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for entry in history_data %}
+    <div class="scanline"></div>
+    <div class="matrix-bg" id="matrix"></div>
+    
+    <div class="container">
+        <h1>Access Logs: {{ email }}<div class="terminal-cursor"></div></h1>
+        
+        <div class="stats">
+            <div class="total-entries">Records Found: {{ total_entries }}</div>
+        </div>
+        
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <table>
+            <thead>
                 <tr>
-                    <td>{{ entry.id }}</td>
-                    <td>{{ entry.created_at }}</td>
+                    <th>Record ID</th>
+                    <th>Timestamp</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+            </thead>
+            <tbody>
+                {% for entry in history_data %}
+                    <tr>
+                        <td>{{ entry.id }}</td>
+                        <td class="timestamp">{{ entry.created_at }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <a href="{{ url_for('home') }}" class="back-link">Return to Main Interface</a>
+    </div>
+
+    <div class="status-bar">
+        <div class="status-indicator">
+            <div class="status-dot"></div>
+            <span>SECURE CONNECTION ESTABLISHED</span>
+        </div>
+        <div class="typing-effect" id="statusMessage">Browsing access logs...</div>
+    </div>
+
+    <!-- JavaScript for matrix effect -->
+    <script>
+        // Matrix code rain effect
+        function setupMatrixBackground() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            document.getElementById('matrix').appendChild(canvas);
+            
+            const characters = "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789";
+            const columns = Math.floor(canvas.width / 20);
+            const drops = [];
+            
+            for (let i = 0; i < columns; i++) {
+                drops[i] = Math.random() * -100;
+            }
+            
+            function draw() {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#00ff41';
+                ctx.font = '15px monospace';
+                
+                for (let i = 0; i < drops.length; i++) {
+                    const text = characters.charAt(Math.floor(Math.random() * characters.length));
+                    ctx.fillText(text, i * 20, drops[i] * 20);
+                    
+                    if (drops[i] * 20 > canvas.height && Math.random() > 0.975) {
+                        drops[i] = 0;
+                    }
+                    
+                    drops[i]++;
+                }
+            }
+            
+            setInterval(draw, 35);
+        }
+        
+        window.addEventListener('load', () => {
+            setupMatrixBackground();
+            
+            // Status message cycling
+            const statusMessages = [
+                "Browsing access logs...",
+                "Secure connection verified",
+                "No intrusion detected",
+                "System integrity: 100%",
+                "Encryption protocols active"
+            ];
+            
+            let messageIndex = 0;
+            setInterval(() => {
+                messageIndex = (messageIndex + 1) % statusMessages.length;
+                document.getElementById('statusMessage').textContent = statusMessages[messageIndex];
+            }, 5000);
+        });
+        
+        // Add hover sound effect to table rows
+        const tableRows = document.querySelectorAll('tbody tr');
+        tableRows.forEach(row => {
+            row.addEventListener('mouseenter', () => {
+                // You would add sound here if actually implementing
+                row.style.backgroundColor = 'rgba(0, 255, 65, 0.1)';
+            });
+            row.addEventListener('mouseleave', () => {
+                row.style.backgroundColor = '';
+            });
+        });
+    </script>
 </body>
 </html>
