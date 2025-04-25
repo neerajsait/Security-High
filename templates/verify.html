@@ -8,7 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(to bottom, #87CEEB, #1E90FF);
+            background: black;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -42,7 +42,7 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             color: white;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+           
             margin-bottom: 30px;
         }
 
@@ -68,38 +68,50 @@
         button {
             width: 100%;
             padding: 10px;
-            background: #007BFF;
-            color: white;
+            background: #fac001;
+            color: black;
             border: none;
             border-radius: 5px;
             font-size: 1rem;
             cursor: pointer;
             margin-top: 10px;
+            font-weight: bold;
+            transition: background 0.3s ease;
         }
 
         button:hover {
-            background: #0056b3;
+            background:#e6ad00;
         }
 
-        .moving-cloud {
-            position: absolute;
-            width: 150px;
-            height: 80px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            box-shadow: 30px 15px 30px rgba(255, 255, 255, 0.6);
-            animation: moveClouds 20s linear infinite;
-            opacity: 0.9;
-            transition: opacity 0.5s ease-in-out;
-        }
 
-        @keyframes moveClouds {
-            from { transform: translateX(-100vw); }
-            to { transform: translateX(100vw); }
-        }
+        .brand-header {
+        position: absolute;
+        top: 200px;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        z-index: 2;
+    }
+
+    .brand-logo {
+        font-size: 28px;
+        font-weight: 800;
+        color: #fac001;
+        letter-spacing: -0.05em;
+       
+    }
+
+    .brand-logo span {
+        color: #ffffff;
+    }
+
     </style>
 </head>
 <body>
+    <div class="brand-header">
+        <div class="brand-logo">Secure<span>Data</span></div>
+    </div>
+
     {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
             <div class="flash-messages">
@@ -118,10 +130,5 @@
             <button type="submit">Verify</button>
         </form>
     </div>
-
-    <!-- Optional moving background clouds -->
-    <div class="moving-cloud" style="top: 15%; left: -150px;"></div>
-    <div class="moving-cloud" style="top: 25%; left: -300px; animation-delay: 5s;"></div>
-    <div class="moving-cloud" style="top: 35%; left: -450px; animation-delay: 10s;"></div>
 </body>
 </html>
