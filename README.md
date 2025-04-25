@@ -8,6 +8,7 @@ CREATE TABLE signup (
     encrypted_password VARCHAR(500)
 );
 
+
 CREATE TABLE user_data (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_email VARCHAR(120),
