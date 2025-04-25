@@ -343,12 +343,10 @@ def home():
     stack_data = []
     db_session = Session()
 
-    if request.method == 'GET':
+    # Initialize decrypted_records if not already set
+    if 'decrypted_records' not in session:
         session['decrypted_records'] = {}
-        print("Page refreshed, decrypted records reset.")
-        log_activity(email, "Home page access", f"Page refreshed, IP: {ip_address}")
-
-    decrypted_records = session.get('decrypted_records', {})
+    decrypted_records = session['decrypted_records']
 
     if request.method == 'POST':
         print(f"POST data: {request.form}")
@@ -404,16 +402,24 @@ def home():
 
                 notify_user_record_action(email, "created", record_id, f"New record encrypted with name: {name}")
 
+                db_session.close()
+                return redirect(url_for('home'))  # Redirect to GET /home after successful POST
+
             except ValueError as ve:
                 db_session.rollback()
                 flash(f"Error: {str(ve)}", "danger")
                 print(f"Validation error for {email}: {ve}")
                 log_activity(email, "Data encryption failed", f"Validation error: {str(ve)}, IP: {ip_address}")
+                db_session.close()
+                return redirect(url_for('home'))  # Redirect even on error
+
             except Exception as e:
                 db_session.rollback()
                 flash(f"Encryption error: {str(e)}", "danger")
                 print(f"Encryption error for {email}: {e}")
                 log_activity(email, "Data encryption failed", f"Error: {str(e)}, IP: {ip_address}")
+                db_session.close()
+                return redirect(url_for('home'))  # Redirect even on error
 
         elif action == 'decrypt':
             try:
@@ -451,30 +457,28 @@ def home():
                     'has_video': bool(record.encrypted_video)
                 }
                 session['decrypted_records'] = decrypted_records
-
-                stack_data.append({
-                    'id': record.id,
-                    'name': decrypted_name,
-                    'dob': decrypted_dob,
-                    'phone': decrypted_phone,
-                    'notes': decrypted_notes,
-                    'image': decrypted_image,
-                    'video': decrypted_video,
-                    'decrypted': True
-                })
+                session.modified = True  # Ensure session is marked as modified
 
                 flash(f"Record '{record_id}' decrypted successfully!", "success")
                 print(f"Decryption successful for {email}, Record ID: {record_id}")
                 log_activity(email, "Data decryption", f"Record ID {record_id} decrypted, IP: {ip_address}")
 
+                db_session.close()
+                return redirect(url_for('home'))  # Redirect to GET /home after successful POST
+
             except ValueError as ve:
                 flash(f"Decryption error: {str(ve)}", "danger")
                 print(f"Decryption error for {email}: {ve}")
                 log_activity(email, "Data decryption failed", f"Error: {str(ve)}, IP: {ip_address}")
+                db_session.close()
+                return redirect(url_for('home'))  # Redirect even on error
+
             except Exception as e:
                 flash(f"Decryption error: {str(e)}", "danger")
                 print(f"Decryption error for {email}: {e}")
                 log_activity(email, "Data decryption failed", f"Error: {str(e)}, IP: {ip_address}")
+                db_session.close()
+                return redirect(url_for('home'))  # Redirect even on error
 
         elif action == 'update':
             try:
@@ -524,6 +528,7 @@ def home():
                         'has_video': bool(encrypted_video)
                     }
                     session['decrypted_records'] = decrypted_records
+                    session.modified = True  # Ensure session is marked as modified
 
                 flash(f"Record '{record_id}' updated successfully!", "success")
                 print(f"Update successful for {email}, Record ID: {record_id}")
@@ -531,16 +536,24 @@ def home():
 
                 notify_user_record_action(email, "updated", record_id, f"Record updated with name: {name}")
 
+                db_session.close()
+                return redirect(url_for('home'))  # Redirect to GET /home after successful POST
+
             except ValueError as ve:
                 db_session.rollback()
                 flash(f"Update error: {str(ve)}", "danger")
                 print(f"Update error for {email}: {ve}")
                 log_activity(email, "Data update failed", f"Error: {str(ve)}, IP: {ip_address}")
+                db_session.close()
+                return redirect(url_for('home'))  # Redirect even on error
+
             except Exception as e:
                 db_session.rollback()
                 flash(f"Update error: {str(e)}", "danger")
                 print(f"Update error for {email}: {e}")
                 log_activity(email, "Data update failed", f"Error: {str(e)}, IP: {ip_address}")
+                db_session.close()
+                return redirect(url_for('home'))  # Redirect even on error
 
         elif action == 'delete':
             try:
@@ -561,7 +574,7 @@ def home():
                 if record_id in decrypted_records:
                     del decrypted_records[record_id]
                     session['decrypted_records'] = decrypted_records
-                    print(f"Removed {record_id} from decrypted_records")
+                    session.modified = True  # Ensure session is marked as modified
 
                 flash(f"Record {record_id} deleted successfully!", "success")
                 print(f"Deletion successful for {email}, Record ID: {record_id}")
@@ -569,16 +582,24 @@ def home():
 
                 notify_user_record_action(email, "deleted", record_id)
 
+                db_session.close()
+                return redirect(url_for('home'))  # Redirect to GET /home after successful POST
+
             except ValueError as ve:
                 db_session.rollback()
                 flash(f"Deletion error: {str(ve)}", "danger")
                 print(f"Deletion error for {email}: {ve}")
                 log_activity(email, "Data deletion failed", f"Error: {str(ve)}, IP: {ip_address}")
+                db_session.close()
+                return redirect(url_for('home'))  # Redirect even on error
+
             except Exception as e:
                 db_session.rollback()
                 flash(f"Deletion error: {str(e)}", "danger")
                 print(f"Deletion error for {email}: {e}")
                 log_activity(email, "Data deletion failed", f"Error: {str(e)}, IP: {ip_address}")
+                db_session.close()
+                return redirect(url_for('home'))  # Redirect even on error
 
     records = db_session.query(UserData).filter_by(user_email=encrypted_email).order_by(UserData.created_at.desc()).all()
     for record in records:

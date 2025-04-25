@@ -943,7 +943,9 @@
             
             setInterval(draw, 50);
         }
-    
+        document.querySelector('form').addEventListener('submit', function() {
+        setTimeout(() => this.reset(), 1000); // Clear form after submission
+    });
         // Initialize matrix background
         setupMatrixBackground();
     </script>
